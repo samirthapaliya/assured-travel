@@ -1,0 +1,34 @@
+{% load static %}
+	<!-- css files -->
+    <link href="{% static 'css/bootstrap.css'%}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+
+	<link href="{% static 'css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- //google fonts -->
+
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-md-4 py-3 d-lg-flex">
+			<div id="logo">
+				<h1 class="mt-md-0 mt-2"> <a href=""> Assured Travel </a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fas fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class="{{ current }}"><a href="/home">Home</a></li>
+				<li class=""><a href="/tours">Tours</a></li>
+				<li class=""><a href="/about">About</a></li>
+				<li class=""><a href="/contact">Contact</a></li>
+				<li class="search"><a href="#"></a></li>
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
