@@ -3,16 +3,26 @@ from django.http import HttpResponse
 
 
 def Home(request):
-    return render(request, 'links/home.html')
+    context = {
+        " home ": "selected"}
+    return render(request, 'links/home.html', context)
 
 
 def Tours(request):
-    return render(request, 'links/tours.html')
+    context = {
+        " tours ": "selected"}
+    return render(request, 'links/tours.html', context)
 
 
 def About(request):
-    return render(request, 'links/about.html')
+    context = {
+        " about ": "selected"}
+    return render(request, 'links/about.html', context)
 
 
 def Contact(request):
-    return render(request, 'links/contact.html')
+    context = {
+        " contact ": "selected"}
+    return render(request, 'links/contact.html', context)
+
+

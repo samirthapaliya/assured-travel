@@ -12,23 +12,48 @@
 	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<!-- //google fonts -->
 
-<header>
-	<div class="container">
-		<!-- nav -->
-		<nav class="py-md-4 py-3 d-lg-flex">
-			<div id="logo">
-				<h1 class="mt-md-0 mt-2"> <a href=""> Assured Travel </a></h1>
-			</div>
-			<label for="drop" class="toggle"><span class="fas fa-bars"></span></label>
-			<input type="checkbox" id="drop" />
-			<ul class="menu ml-auto mt-1">
-				<li class="{{ current }}"><a href="/home">Home</a></li>
-				<li class=""><a href="/tours">Tours</a></li>
-				<li class=""><a href="/about">About</a></li>
-				<li class=""><a href="/contact">Contact</a></li>
-				<li class="search"><a href="#"></a></li>
-			</ul>
-		</nav>
-		<!-- //nav -->
-	</div>
-</header>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="#">Assured Travel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="selected">
+        <a class="{{ home }}" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {{active_student}}">
+        <a class="nav-link" href="/tours">Tours</a>
+      </li>
+      <li class="nav-item {{active_stu}}">
+        <a class="nav-link" href="/about">Stu</a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
+      <li class="nav-item {{activate_fileMF}}">
+        <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="{% url 'logout' %}">Logout</a>
+      </li>
+      {% else %}
+      <li class="nav-item {{activate_fileMF}}">
+        <a class="btn btn-primary btn-sm mx-2" href="{% url 'login' %}">Login</a>
+      </li>
+      <li class="nav-item {{activate_fileMF}}">
+        <a class="btn btn-warning btn-sm mx-2" href="{% url 'register' %}">Register</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<style>
+    .selected{
+        color:red;
+    }
+</style>

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item {{activate_product}}">
+                <a class="nav-link" href="/admin-dashboard">Home<span class="sr-only">Home(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="btn btn-warning btn-sm mx-2" href="/admin-dashboard/register-user">Register User</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="/logout">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

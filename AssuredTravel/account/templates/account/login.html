@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>User Login</title>
+{% endblock%}
+
+{% block main_content %}
+<style>
+.help-block{
+color:red;
+font-weight:bold;
+}
+ul li{
+color:red;
+font-weight:bold;
+}
+
+</style>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <h6 class="success_message py-3 px-1 my-2 text-center">{{message}}</h6>
+            {% endif %}
+
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+            <h6 class="error_message py-3 px-1 my-2 text-center">{{message}}</h6>
+            {% endif %}
+            {% endfor %}
+            <h1 class="text-center">User Login</h1>
+            <div class="card py-2 px-2">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+
+                    {{ form | bootstrap_horizontal }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Enter username';
+    form_fields[2].placeholder = 'Enter password';
+
+    for (var field in form_fields){
+    field.className += ' form-control my-2'
+    }
+
+</script>
+
+{% endblock %}
