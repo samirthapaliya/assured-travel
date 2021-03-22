@@ -6,8 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-@login_required
-@admin_only
+
 def admin_dashboard(request):
     student = Student.objects.all()
     student_count = student.count()
@@ -25,8 +24,6 @@ def admin_dashboard(request):
     return render(request, 'admins/adminDashboard.html', context)
 
 
-@login_required
-@admin_only
 def get_user(request):
     users_all = User.objects.all()
     users = users_all.filter(is_staff=0)
@@ -36,8 +33,6 @@ def get_user(request):
     return render(request, 'admins/showUsers.html', context)
 
 
-@login_required
-@admin_only
 def update_user_to_admin(request, user_id):
     user = User.objects.get(id=user_id)
     user.is_staff = True

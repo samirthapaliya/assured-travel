@@ -31,8 +31,12 @@ def login_user(request):
             data = form.cleaned_data
             user = authenticate(request, username=data['username'], password=data['password'])
             if user is not None:
-                login(request, user)
-                return redirect('/home')
+                if not user.is_staff:
+                    login(request, user)
+                    return redirect('home')
+                if user.is_staff:
+                    login(request, user)
+                    return redirect('/admin-dashboard')
             else:
                 messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
                 return render(request, 'account/login.html', {'form': form})
