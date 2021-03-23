@@ -1,0 +1,32 @@
+{% extends 'layout-admin.html' %}
+{% load bootstrap %}
+
+{% block title %}
+<title>Add Tour</title>
+{% endblock%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="card col-md-8 my-2">
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <h6 class="success_message py-3 px-1 my-2 text-center">{{message}}</h6>
+            {% endif %}
+
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <h6 class="error_message py-3 px-1 my-2 text-center">{{message}}</h6>
+            {% endif %}
+            {% endfor %}
+            <form class="form" method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | bootstrap_horizontal }}
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

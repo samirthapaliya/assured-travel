@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 
 def Home(request):
@@ -9,8 +10,9 @@ def Home(request):
 
 
 def Tours(request):
+    tours = Tour.objects.all()
     context = {
-        " tours ": "selected"}
+        " tours ": "selected", "key":tours}
     return render(request, 'links/tours.html', context)
 
 
