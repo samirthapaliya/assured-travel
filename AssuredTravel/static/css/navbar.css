@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'cursive';
+
+}
+
+.navbar{
+    background: black;
+    padding: 1rem 5rem;
+}
+
+.navbar .navbar-brand{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nav-item>a{
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 0 0.8rem;
+    text-decoration: none;
+}
+
+.nav-item>a:hover{
+    color: deeppink;
+}
+
+.navbar-btn1{
+    background-color: black;
+
+    padding: 0.4rem 0.5rem;
+
+}
+
+.navbar-btn1> a{
+        font-weight: 600;
+        border-radius: 30px;
+}
+
+.navbar-btn2{
+    padding: 0.4rem 0.5rem;
+}
+
+.navbar-btn2> a{
+        font-weight: 600;
+}
+
+.navbar-toggler{
+    margin-bottom: 2rem;
+}

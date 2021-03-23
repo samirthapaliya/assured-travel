@@ -1,59 +1,149 @@
 {% load static %}
-	<!-- css files -->
-    <link href="{% static 'css/bootstrap.css'%}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
-    <link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' /><!-- custom css -->
-    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet"><!-- fontawesome css -->
-	<!-- //css files -->
-
-	<link href="{% static 'css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
-
-	<!-- google fonts -->
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	<!-- //google fonts -->
 
 
 
+{##}
+{##}
+{#<nav class="navbar navbar-expand-lg navbar-light bg-success">#}
+{#  <a class="navbar-brand" href="#">Assured Travel</a>#}
+{#  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggler-icon"></span>#}
+{#  </button>#}
+{##}
+{#  <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarSupportedContent">#}
+{#    <ul class="navbar-nav mr-auto">#}
+{#      <li class="selected">#}
+{#        <a class="{{ selected }}" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>#}
+{#      </li>#}
+{#      <li class="nav-item {{selected}}">#}
+{#        <a class="nav-link" href="{% url 'tourAP' %}">Tours</a>#}
+{#      </li>#}
+{#      <li class="nav-item {{active_stu}}">#}
+{#        <a class="nav-link" href="{% url 'contactAP' %}">Stu</a>#}
+{#      </li>#}
+{##}
+{#    </ul>#}
+{##}
+{#    <ul class="navbar-nav mr-auto">#}
+{#      {% if user.is_authenticated %}#}
+{#      <li class="nav-item {{activate_fileMF}}">#}
+{#        <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="{% url 'logout' %}">Logout</a>#}
+{#      </li>#}
+{#      {% else %}#}
+{#      <li class="nav-item {{activate_fileMF}}">#}
+{#        <a class="btn btn-primary btn-sm mx-2" href="{% url 'login' %}">Login</a>#}
+{#      </li>#}
+{#      <li class="nav-item {{activate_fileMF}}">#}
+{#        <a class="btn btn-warning btn-sm mx-2" href="{% url 'register' %}">Register</a>#}
+{#      </li>#}
+{#      {% endif %}#}
+{#    </ul>#}
+{#  </div>#}
+{#</nav>#}
+{##}
+{#<style>#}
+{#    .selected{#}
+{#        color:red;#}
+{#    }#}
+{#</style>#}
+<!--========================-->
+<link href="../static/css/navbar.css" type="text/css", rel="stylesheet">
+{#<div class="header">#}
+{#    <nav class="navbar navbar-expand-lg navbar-dark">#}
+{#      <a class="navbar-brand" href="#">Assured Travel</a>#}
+{#      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggle-icon"></span>#}
+{#      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">#}
+{#        <ul class="navbar-nav mx-auto">#}
+{#          <li class="nav-item">#}
+{#            <a class="{{ activate_home }} nav-link" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>#}
+{#          </li>#}
+{#          <li class="nav-item">#}
+{#              <li class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle" href="{% url 'tourAP' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#              Tour#}
+{#            </a>#}
+{#            <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#              <a class="dropdown-item" href="#">International</a>#}
+{#              <a class="dropdown-item" href="#">National</a>#}
+{#            </div>#}
+{#          </li>#}
+{#          </li>#}
+{#          <li class="nav-item">#}
+{#            <a class="{{ activate_about }} nav-link" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>#}
+{#          </li>#}
+{#          <li class="nav-item">#}
+{#            <a class="{{ active_contact }} nav-link" href="{% url 'contactAP' %}">Contact Us <span class="sr-only">(current)</span></a>#}
+{#          </li>#}
+{##}
+{#          <li class="nav-item">#}
+{#            <a class="nav-link" href="#">Link</a>#}
+{#          </li>#}
+{#        </ul>#}
+{#        <ul class="navbar-nav ml-auto">#}
+{#          {% if user.is_authenticated %}#}
+{#              <li class="nav-item {{activate_fileMF}}">#}
+{#                <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="{% url 'logout' %}">Logout</a>#}
+{#              </li>#}
+{#          {% else %}#}
+{#              <li class="nav-item {{activate_fileMF}}">#}
+{#                <a class="btn btn-primary btn-sm mx-2" href="{% url 'login' %}">Login</a>#}
+{#              </li>#}
+{#              <li class="nav-item {{activate_fileMF}}">#}
+{#                <a class="btn btn-warning btn-sm mx-2" href="{% url 'register' %}">Register</a>#}
+{#              </li>#}
+{#          {% endif %}#}
+{#        </ul>#}
+{##}
+{#  </div>#}
+{#</nav>#}
+{#</div>#}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark ">
   <a class="navbar-brand" href="#">Assured Travel</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="selected">
-        <a class="{{ home }}" href="/home">Home <span class="sr-only">(current)</span></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+          <a class="{{ activate_home }}" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item {{active_student}}">
-        <a class="nav-link" href="/tours">Tours</a>
-      </li>
-      <li class="nav-item {{active_stu}}">
-        <a class="nav-link" href="/about">Stu</a>
-      </li>
-
+      <li class="nav-item">
+          <li class="nav-item dropdown">
+            <a class="nav-item dropdown-toggle" href="{% url 'tourAP' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tour
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">International</a>
+                <a class="dropdown-item" href="#">National</a>
+            </div>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="{{ activate_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="{{ active_contact }}" href="{% url 'contactAP' %}">Contact Us <span class="sr-only">(current)</span></a>
+          </li>
     </ul>
 
-    <ul class="navbar-nav mr-auto">
-      {% if user.is_authenticated %}
-      <li class="nav-item {{activate_fileMF}}">
-        <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="{% url 'logout' %}">Logout</a>
-      </li>
-      {% else %}
-      <li class="nav-item {{activate_fileMF}}">
-        <a class="btn btn-primary btn-sm mx-2" href="{% url 'login' %}">Login</a>
-      </li>
-      <li class="nav-item {{activate_fileMF}}">
-        <a class="btn btn-warning btn-sm mx-2" href="{% url 'register' %}">Register</a>
-      </li>
-      {% endif %}
-    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+              <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'logout' %}">Logout</a>
+              </li>
+          {% else %}
+              <li class="navbar-btn1 {{activate_fileMF}}">
+                <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}">Login</a>
+              </li>
+              <li class="navbar-btn2 {{activate_fileMF}}">
+                <a class="btn btn-outline-success " href="{% url 'register' %}">Register</a>
+              </li>
+          {% endif %}
+        </ul>
+    </form>
   </div>
 </nav>
-
-<style>
-    .selected{
-        color:red;
-    }
-</style>
