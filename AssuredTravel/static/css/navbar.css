@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', 'cursive';
-
 }
 
 .navbar{
@@ -19,12 +18,13 @@
     font-size: 1.4rem;
     font-weight: 700;
 }
+.nav-item a{
 
-.nav-item>a{
     color: #ffffff;
     font-size: 1.1rem;
     padding: 0 0.8rem;
     text-decoration: none;
+
 }
 
 .nav-item>a:hover{
@@ -53,4 +53,9 @@
 
 .navbar-toggler{
     margin-bottom: 2rem;
+    background-color: crimson;
 }
+
+/*.active{*/
+/*    color: rgba(155, 165, 170, 1);*/
+/*}*/
