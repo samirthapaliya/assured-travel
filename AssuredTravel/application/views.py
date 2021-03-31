@@ -13,8 +13,8 @@ def Home(request):
 def Tours(request):
     tours = Tour.objects.all()
     context = {
-         'activate_tours': 'active',
-         'key': tours
+        'activate_tours': 'active',
+        'key': tours
     }
     return render(request, 'links/tours.html', context)
 
@@ -28,8 +28,13 @@ def About(request):
 
 def Contact(request):
     context = {
-         'active_contact': 'active',
+        'active_contact': 'active',
     }
     return render(request, 'links/contact.html', context)
 
 
+def Destination(request):
+    context = {
+        'active_destination': 'active',
+    }
+    return render(request, 'links/destination.html', context)
