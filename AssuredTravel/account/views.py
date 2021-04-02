@@ -25,21 +25,25 @@ def register_user(request):
 
 @unauthenticated_user
 def login_user(request):
-    if request.method == "POST":
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            user = authenticate(request, username=data['username'], password=data['password'])
-            if user is not None:
-                if not user.is_staff:
-                    login(request, user)
-                    return redirect('application')
-                if user.is_staff:
-                    login(request, user)
-                    return redirect('/admin-dashboard')
-            else:
-                messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
-                return render(request, 'account/login.html', {'form': form})
+    if request.user.is_authenticated:
+        return redirect('homeAP')
+    else:
+        if request.method == "POST":
+            form = LoginForm(request.POST)
+            if form.is_valid():
+                data = form.cleaned_data
+                user = authenticate(request, username=data['username'], password=data['password'])
+                if user is not None:
+                    if not user.is_staff:
+                        login(request, user)
+                        return redirect('homeAP')
+                    if user.is_staff:
+                        login(request, user)
+                        return redirect('/admin-dashboard')
+                else:
+                    messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
+                    return render(request, 'account/login.html', {'form': form})
+
     context = {
         'form': LoginForm()
     }

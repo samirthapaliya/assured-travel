@@ -9,7 +9,3 @@ class TourForm(ModelForm):
         fields = '__all__'
 
 
-class TourDetailform(ModelForm):
-    class Meta:
-        model = TourDetail
-        fields = '__all__'

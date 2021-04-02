@@ -8,7 +8,7 @@ def unauthenticated_user(view_function):
             if request.user.is_staff:
                 return redirect('/admin-dashboard')
             elif not request.user.is_staff:
-                return redirect('/application')
+                return redirect('homeAP')
         else:
             return view_function(request, *args, **kwargs)
 
@@ -20,7 +20,7 @@ def admin_only(view_function):
         if request.user.is_staff:
             return view_function(request, *args, **kwargs)
         else:
-            return redirect('/application')
+            return redirect('homeAP')
 
     return wrapper_function
 

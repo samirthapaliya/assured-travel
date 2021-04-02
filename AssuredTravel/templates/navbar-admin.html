@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item {{activate_product}}">
-                <a class="nav-link" href="/admin-dashboard">Home<span class="sr-only">Home(current)</span></a>
+                <a class="nav-link" href="{% url 'homeAP' %}">Home<span class="sr-only">Home(current)</span></a>
             </li>
         </ul>
         <ul class="navbar-nav">
 
             <li class="nav-item">
-                <a class="btn btn-warning btn-sm mx-2" href="/admin-dashboard/register-user">Register User</a>
+                <a class="btn btn-warning btn-sm mx-2" href="{%url 'registerAdmin' %}">Register User</a>
             </li>
             <li class="nav-item">
                 <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="/">Logout</a>

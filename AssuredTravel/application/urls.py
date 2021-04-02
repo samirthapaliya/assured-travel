@@ -8,7 +8,7 @@ urlpatterns = [
     path('about', views.About, name="aboutAP"),
     path('contact', views.Contact, name="contactAP"),
     path('destination', views.Destination, name="destinationAP"),
-
+    path('tour-detail/<int:id>', views.view_detail, name="tour-detail"),
     path('postTourDetail', views.post_tour_detail),
 
 ]
