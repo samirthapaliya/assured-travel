@@ -12,39 +12,38 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-          <a class="{{ activate_home }}" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>
+          <a class="{{ active_home }}" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>
       </li>
+
       <li class="nav-item">
-          <li class="nav-item dropdown">
-            <a class="nav-item dropdown-toggle " href="{% url 'tourAP' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Tour
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">International</a>
-                <a class="dropdown-item" href="#">National</a>
-            </div>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="{{ activate_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="{{ active_contact }}" href="{% url 'contactAP' %}">Contact Us <span class="sr-only">(current)</span></a>
-          </li>
+          <a class="{{ active_tours}}" href="{% url 'tourAP' %}">Tour<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="{{ active_destination }}" href="{% url 'destinationAP' %}">Destination<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="{{ activate_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="{{ active_contact }}" href="{% url 'contactAP' %}">Contact Us <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
           {% if user.is_authenticated %}
               <li class="nav-item {{activate_fileMF}}">
-                <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'logout' %}">Logout</a>
+                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logout' %}">Logout</a>
               </li>
           {% else %}
               <li class="navbar-btn1 {{activate_fileMF}}">
-                <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}">Login</a>
+                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'login' %}">Login</a>
               </li>
               <li class="navbar-btn2 {{activate_fileMF}}">
-                <a class="btn btn-outline-success " href="{% url 'register' %}">Register</a>
+                <a class="btn boxed-btn4" href="{% url 'register' %}">Register</a>
               </li>
           {% endif %}
         </ul>

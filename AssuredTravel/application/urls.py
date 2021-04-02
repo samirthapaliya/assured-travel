@@ -7,5 +7,8 @@ urlpatterns = [
     path('tours', views.Tours, name="tourAP"),
     path('about', views.About, name="aboutAP"),
     path('contact', views.Contact, name="contactAP"),
-    path('destination', views.Destination, name="destinationAP")
+    path('destination', views.Destination, name="destinationAP"),
+
+    path('postTourDetail', views.post_tour_detail),
+
 ]

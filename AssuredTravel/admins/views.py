@@ -9,11 +9,13 @@ from django.contrib.auth.decorators import login_required
 from application.forms import *
 from application.models import *
 
-
+@login_required
+@admin_only
 def admin_dashboard(request):
     return render(request, 'admins/adminDashboard.html')
 
-
+@login_required
+@admin_only
 def get_user(request):
     users_all = User.objects.all()
     users = users_all.filter(is_staff=0)
@@ -22,7 +24,8 @@ def get_user(request):
     }
     return render(request, 'admins/showUsers.html', context)
 
-
+@login_required
+@admin_only
 def update_user_to_admin(request, user_id):
     user = User.objects.get(id=user_id)
     user.is_staff = True
@@ -30,7 +33,8 @@ def update_user_to_admin(request, user_id):
     messages.add_message(request, messages.SUCCESS, 'User has been updated to Admin')
     return redirect('/admin-dashboard')
 
-
+@login_required
+@admin_only
 def tour(request):
     if request.method == 'POST':
         form = TourForm(request.POST)

@@ -5,7 +5,10 @@ from django.shortcuts import redirect
 def unauthenticated_user(view_function):
     def wrapper_function(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('/application/home')
+            if request.user.is_staff:
+                return redirect('/admin-dashboard')
+            elif not request.user.is_staff:
+                return redirect('/application')
         else:
             return view_function(request, *args, **kwargs)
 

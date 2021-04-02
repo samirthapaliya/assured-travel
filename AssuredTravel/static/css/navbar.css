@@ -27,6 +27,12 @@
 
 }
 
+.dropdown-menu a{
+    color: deeppink;
+    background: black;
+}
+
+
 .nav-item>a:hover{
     color: deeppink;
 }

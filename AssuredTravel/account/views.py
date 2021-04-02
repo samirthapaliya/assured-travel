@@ -33,18 +33,20 @@ def login_user(request):
             if user is not None:
                 if not user.is_staff:
                     login(request, user)
-                    return redirect('home')
+                    return redirect('application')
                 if user.is_staff:
                     login(request, user)
                     return redirect('/admin-dashboard')
             else:
                 messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
                 return render(request, 'account/login.html', {'form': form})
-    context = {'form': LoginForm()}
+    context = {
+        'form': LoginForm()
+    }
     return render(request, 'account/login.html', context)
 
 
 def logout_user(request):
     logout(request)
-    return redirect('logout')
+    return redirect('/')
 

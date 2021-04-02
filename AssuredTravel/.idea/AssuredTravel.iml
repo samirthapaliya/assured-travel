@@ -20,6 +20,7 @@
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="popper.js" level="application" />
     <orderEntry type="library" name="OwlCarousel2" level="application" />
+    <orderEntry type="library" name="animate.css" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
