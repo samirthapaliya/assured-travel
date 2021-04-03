@@ -1074,3 +1074,144 @@
 .boxed-btn.large-width {
   width: 220px;
 }
+
+/*=========================================destination page==================================*/
+.destination_banner_wrap {
+  background-image: url(../images/banner/destination.png);
+  padding: 340px 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (max-width: 767px) {
+  .destination_banner_wrap {
+    padding: 150px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .destination_banner_wrap {
+    padding: 250px 0;
+  }
+}
+
+.destination_banner_wrap.overlay:before {
+  opacity: .3;
+}
+
+.destination_banner_wrap .destination_text h3 {
+  font-size: 80px;
+  line-height: 90px;
+  color: #fff;
+  font-family: "Nothing You Could Do", cursive;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .destination_banner_wrap .destination_text h3 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .destination_banner_wrap .destination_text h3 {
+    font-size: 60px;
+    line-height: 70px;
+  }
+}
+
+.destination_banner_wrap .destination_text p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/*destination detail*/
+.destination_details_info {
+  padding-bottom: 150px;
+  padding-top: 70px;
+}
+
+@media (max-width: 767px) {
+  .destination_details_info {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .destination_details_info {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+.destination_details_info .bordered_1px {
+  border-top: 1px solid #E4E6E8;
+  margin-top: 65px;
+  padding-bottom: 65px;
+}
+
+.destination_details_info .destination_info h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #001D38;
+  margin-bottom: 25px;
+}
+
+.destination_details_info .destination_info p {
+  margin-bottom: 20px;
+}
+
+.destination_details_info .destination_info .single_destination {
+  margin-bottom: 22px;
+}
+
+.destination_details_info .destination_info .single_destination h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.destination_details_info .contact_join h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #001D38;
+  margin-bottom: 32px;
+}
+
+.destination_details_info .contact_join .single_input {
+  margin-bottom: 20px;
+}
+
+.destination_details_info .contact_join .single_input input, .destination_details_info .contact_join .single_input textarea {
+  width: 100%;
+  background: #F4F4F4;
+  height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #000;
+  padding-left: 15px;
+  border: none;
+}
+
+.destination_details_info .contact_join .single_input input::placeholder, .destination_details_info .contact_join .single_input textarea::placeholder {
+  color: #727272;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.destination_details_info .contact_join .single_input input:focus, .destination_details_info .contact_join .single_input textarea:focus {
+  outline: none;
+}
+
+.destination_details_info .contact_join .single_input textarea {
+  height: 115px;
+  padding: 15px;
+}
+
+.destination_details_info .contact_join .submit_btn button {
+  width: 100%;
+  text-align: center;
+}
