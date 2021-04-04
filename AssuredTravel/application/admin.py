@@ -3,3 +3,4 @@ from .models import *
 
 admin.site.register(Tour)
 admin.site.register(Itenerary)
+admin.site.register(Destination)

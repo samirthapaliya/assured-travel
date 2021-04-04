@@ -29,6 +29,8 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- slider_area_start -->
+
 
     <!-- where_togo_area_start  -->
     <div class="where_togo_area">
@@ -87,7 +89,7 @@
                             <img src="{{ tour.picture.url }}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">{{ tour.name }} <a href="{% url 'destinationAP' %}">  07 Places</a> </p>
+                            <p class="d-flex align-items-center">{{ tour.name }} <a href="{% url 'travelDestination' tour.id %}">  07 Places</a> </p>
 
                         </div>
                     </div>

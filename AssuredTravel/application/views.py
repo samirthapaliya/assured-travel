@@ -24,7 +24,7 @@ def Tours(request):
     return render(request, 'links/tours.html', context)
 
 
-def Destination(request):
+def destination(request):
     destination = Destination.objects.all()
     context = {
         'active_destination': 'active',
@@ -46,12 +46,6 @@ def Contact(request):
     }
     return render(request, 'links/contact.html', context)
 
-
-def Destination(request):
-    context = {
-        'active_destination': 'active',
-    }
-    return render(request, 'links/destination.html', context)
 
 
 def post_tour_detail(request):
@@ -78,3 +72,12 @@ def view_detail(request, id):
         'itinerary': itinerary
     }
     return render(request, 'links/destination.html', context)
+
+def destinationDetail(request, id):
+    tour = Tour.objects.get(pk=id)
+    destination = Destination.objects.filter(tour=tour)
+    context = {
+        'tour': tour,
+        'destination': destination
+    }
+    return render(request, 'links/travel_destination.html', context)
