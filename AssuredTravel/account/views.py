@@ -7,6 +7,7 @@ from .models import Profile
 
 from .auth import unauthenticated_user
 from .forms import LoginForm
+from application.models import *
 
 from .forms import ProfileForm
 
@@ -66,7 +67,6 @@ def user_account(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-
             form.save()
             messages.success(request, 'Account update Successful for ' + str(request.user.profile))
             return redirect('profile')
@@ -75,4 +75,5 @@ def user_account(request):
         'active_profile': 'active',
     }
     return render(request, 'account/profile.html', context)
+
 

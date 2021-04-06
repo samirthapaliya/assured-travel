@@ -7,6 +7,8 @@ from account.auth import admin_only
 from application.models import *
 
 
+
+
 @login_required
 @admin_only
 def admin_dashboard(request):
@@ -65,15 +67,27 @@ def update_user_to_admin(request, user_id):
 
 @login_required
 @admin_only
-def tour(request):
+def postTour(request):
     if request.method == 'POST':
         form = Tour(request.POST)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Tour Added Successfully')
-            return redirect('/admin-dashboard/tour')
+            return redirect('/admin-dashboard/getTour')
         else:
             messages.add_message(request, messages.ERROR, 'Error in adding tour')
-            return render(request, 'admins/tour.html', {'form': form})
+            return render(request, 'admins/postTour.html', {'form': form})
     context = {"form": Tour}
-    return render(request, 'admins/tour.html', context)
+    return render(request, 'admins/postTour.html', context)
+
+# for tour
+
+def getTour(request):
+    tours = Tour.objects.all()
+
+    context = {
+        'tours': tours,
+
+    }
+    return render(request, 'admins/showTour.html', context)
+

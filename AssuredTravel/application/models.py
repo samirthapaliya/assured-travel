@@ -1,16 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Review(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
+
 
 class Itenerary(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
 
+
 class Destination(models.Model):
     name = models.CharField(max_length=200)
+
 
 class Tour(models.Model):
     picture = models.FileField(upload_to='static/images/uploads', null=True)
@@ -27,3 +31,6 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.name
+
+    def is_valid(self):
+        pass

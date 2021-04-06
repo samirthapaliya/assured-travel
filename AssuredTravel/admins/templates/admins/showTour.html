@@ -1,0 +1,58 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+Show Tours
+{% endblock%}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12 offset">
+            <h1 class="text-center"> Tours </h1>
+            <div class="card py-2 px-2">
+                <a class="btn btn-success btn-sm ml-auto mb-2"
+                   href="{% url 'postTour' %}">Add New Tour</a>
+                <table class="table-striped">
+                    <tr>
+                        <th>name</th>
+                        <th>Price</th>
+                        <th>date</th>
+                        <th>location</th>
+                        <th>main_Info</th>
+                        <th>itinerary</th>
+                        <th>country_Name</th>
+                        <th>description</th>
+                        <th>reviews</th>
+                        <th>destination</th>
+                        <th>picture</th>
+                    </tr>
+                    {% for tour in tours %}
+                    <tr>
+                        <td>{{ tour.name }}</td>
+                        <td>{{ tour.price }}</td>
+                        <td>{{ tour.date }}</td>
+                        <td>{{ tour.location }}</td>
+                        <td>{{ tour.main_Info }}</td>
+                        <td>{{ tour.itinerary }}</td>
+                        <td>{{ tour.country_Name }}</td>
+                        <td>{{ tour.description }}</td>
+                        <td>{{ tour.reviews }}</td>
+                        <td>{{ tour.destination }}</td>
+                        <td>{{ tour.picture }}</td>
+
+
+                        <td> <img src="{{tour.picture.url}}" alt="file_image" width="100"></td>
+                        <td><a href="#"
+                               class="btn btn-primary btn-sm">Edit</a> &nbsp;
+                            <a href="#"
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure want to delete this file?')">
+                                Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
