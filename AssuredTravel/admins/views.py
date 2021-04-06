@@ -1,25 +1,27 @@
-from django.shortcuts import render, redirect
-from account.auth import admin_only
-from application.models import *
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
-from application.forms import *
+from account.auth import admin_only
 from application.models import *
 
 
 @login_required
 @admin_only
 def admin_dashboard(request):
-    tour =Tour.objects.all()
+    tour = Tour.objects.all()
     tour_count = tour.count()
-    user = User.objects.all()
-    # user_count = User.filter(is_staff=0).count()
-    # admin_count = User.filter(is_staff=1).count()
+    users = User.objects.all()
+    user_count = users.filter(is_staff=0).count()
+    admin_count = users.filter(is_staff=1).count()
+    context = {
+        'tour': tour_count,
+        'user': user_count,
+        'admin': admin_count
+    }
 
-    return render(request, 'admins/adminDashboard.html')
+    return render(request, 'admins/adminDashboard.html', context)
 
 
 @login_required
@@ -33,8 +35,10 @@ def get_user(request):
     return render(request, 'admins/showUsers.html', context)
 
 
+@login_required
+@admin_only
 def register_user_admin(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -63,7 +67,7 @@ def update_user_to_admin(request, user_id):
 @admin_only
 def tour(request):
     if request.method == 'POST':
-        form = TourForm(request.POST)
+        form = Tour(request.POST)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Tour Added Successfully')
@@ -71,5 +75,5 @@ def tour(request):
         else:
             messages.add_message(request, messages.ERROR, 'Error in adding tour')
             return render(request, 'admins/tour.html', {'form': form})
-    context = {"form": TourForm}
+    context = {"form": Tour}
     return render(request, 'admins/tour.html', context)

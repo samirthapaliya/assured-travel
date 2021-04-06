@@ -10,6 +10,6 @@ urlpatterns = [
     path('destination', views.Destination, name="destinationAP"),
     path('tour-detail/<int:id>', views.view_detail, name="tour-detail"),
     path('postTourDetail', views.post_tour_detail),
-    path('travelDestination/<int:id>', views.destinationDetail, name="travelDestination")
-
+    path('travelDestination/<int:id>', views.destinationDetail, name="travelDestination"),
+    path('search/', views.tour_search, name="search")
 ]

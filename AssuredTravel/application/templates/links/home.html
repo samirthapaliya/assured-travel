@@ -43,24 +43,14 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="search_wrap">
-                        <form class="search_form" action="#">
+                        <form class="search_form" action="{% url 'search' %}" method="GET">
                             <div class="input_field">
                                 <label>
-                                    <input type="text" placeholder="Where to go?">
+                                    <input type="text" placeholder="Where to go?" name="location">
                                 </label>
                             </div>
-                            <div class="input_field">
-                                <input id="datepicker" placeholder="Date">
-                            </div>
-                            <div class="input_field">
-                                <select>
-                                    <option data-display="Travel type">Travel type</option>
-                                    <option value="1">Some option</option>
-                                    <option value="2">Another option</option>
-                                </select>
-                            </div>
                             <div class="search_btn">
-                                <button class="boxed-btn4 " type="submit" >Search</button>
+                                <input class="boxed-btn4 " type="submit" value="Search">
                             </div>
                         </form>
                     </div>
@@ -89,7 +79,11 @@
                             <img src="{{ tour.picture.url }}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">{{ tour.name }} <a href="{% url 'travelDestination' tour.id %}">  07 Places</a> </p>
+                            <p class="d-flex align-items-center">{{ tour.name }}
+                                <a href="{% url 'travelDestination' tour.id %}">
+                                    {{ tour.destination.count }} Places
+                                </a>
+                            </p>
 
                         </div>
                     </div>
@@ -159,17 +153,12 @@
                             <a href="{% url 'tour-detail' tour.id %}"><h3>{{ tour.location }}</h3></a>
                             <p>{{ tour.country_Name }}</p>
                             <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
+                                <span id="review-star" class="d-flex justify-content-center align-items-center">
+                                     <a href="#">( <span id="review-count">{{ tour.reviews.count }}</span> Review)</a>
                                 </span>
                                 <div class="days">
                                     <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
+                                    <a href="#">{{ tour.itinerary.count }} Days</a>
                                 </div>
                             </div>
                         </div>
@@ -235,5 +224,20 @@
     </div>
     <!--travel variation area end-->
 
+    <script>
+        var reviews_count = document.getElementById('review-count').innerHTML;
+        var review_star = document.getElementById('review-star');
+
+        for (var i=1; i<=reviews_count; i++){
+            var star = document.createElement("i");
+            star.className = "fa fa-star";
+            review_star.append(star);
+            if ( i == 5){
+                break;
+            }
+        }
+        console.log({{ tour.reviews.rating }});
+
+    </script>
 
 {% endblock %}

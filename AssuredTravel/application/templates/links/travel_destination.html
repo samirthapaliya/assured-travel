@@ -32,7 +32,7 @@
                             <a href="#" class="prise">Rs.{{ tour.price }}</a>
                         </div>
                         <div class="place_info">
-                            <a href=><h3>{{ i.name }}</h3></a>
+                            <a href="{% url 'tour-detail' tour.id %}"><h3>{{ i.name }}</h3></a>
                             <p>{{ tour.country_Name }}</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">

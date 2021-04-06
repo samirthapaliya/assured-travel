@@ -739,9 +739,9 @@
 }
 
 /* line 4, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
-.bradcam_bg_2 {
-  background-image: url(../../static/images/banner/bradcam2.png);
-}
+        .bradcam_bg_2 {
+          background-image: url('');
+        }
 
 /* line 7, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
 .bradcam_bg_3 {
@@ -1077,7 +1077,7 @@
 
 /*=========================================destination page==================================*/
 .destination_banner_wrap {
-  background-image: url(../images/banner/destination.png);
+  /*background-image: url(../images/banner/destination.png);*/
   padding: 340px 0;
   background-size: cover;
   background-position: center center;

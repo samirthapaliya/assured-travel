@@ -1,11 +1,14 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
-from .auth import unauthenticated_user
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from .models import Profile
+
+from .auth import unauthenticated_user
+from .forms import LoginForm
+
+from .forms import ProfileForm
 
 
 @unauthenticated_user
@@ -53,4 +56,23 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+
+@login_required
+def user_account(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+
+            form.save()
+            messages.success(request, 'Account update Successful for ' + str(request.user.profile))
+            return redirect('profile')
+    context = {
+        'form': form,
+        'active_profile': 'active',
+    }
+    return render(request, 'account/profile.html', context)
 

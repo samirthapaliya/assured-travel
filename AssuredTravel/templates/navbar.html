@@ -34,16 +34,20 @@
 
     <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
-          {% if user.is_authenticated %}
-              <li class="nav-item {{activate_fileMF}}">
-                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logout' %}">Logout</a>
+          {% if request.user.is_authenticated %}
+              <li class="nav-item {{active_profile}}">
+                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'profile' %}">Profile</a>
+
+              </li>
+              <li class="nav-item ">
+                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logoutAc' %}">Logout</a>
               </li>
           {% else %}
-              <li class="navbar-btn1 {{activate_fileMF}}">
+              <li class="navbar-btn1">
                 <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'login' %}">Login</a>
               </li>
-              <li class="navbar-btn2 {{activate_fileMF}}">
-                <a class="btn boxed-btn4" href="{% url 'register' %}">Register</a>
+              <li class="navbar-btn2">
+                <a class="btn boxed-btn4" href="{% url 'registerAc' %}">Register</a>
               </li>
           {% endif %}
         </ul>
