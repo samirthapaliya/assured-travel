@@ -14,10 +14,11 @@ from .forms import ProfileForm
 
 @unauthenticated_user
 def register_user(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Profile.objects.create(user=user, username=user.username)
             messages.add_message(request, messages.SUCCESS, 'User Registered Successfully')
             return redirect('/ac')
         else:
@@ -63,13 +64,12 @@ def logout_user(request):
 def user_account(request):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
-
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Account update Successful for ' + str(request.user.profile))
-            return redirect('profile')
+            return redirect('profileAc')
     context = {
         'form': form,
         'active_profile': 'active',

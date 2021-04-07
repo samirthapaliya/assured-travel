@@ -1,34 +1,21 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% load bootstrap %}
+
 <!--title-->
 {% block title %}
 <title>Update Profile</title>
 {% endblock %}
 
-
-
 <!--main body-->
 {% block main_content %}
-<style>
-.help-block {
-    color: red;
-    font-weight: bold;
-}
-.errorlist{
-color: red;
-font-weight: bold;
-}
 
-</style>
 
 <div class="container">
-    <div class="row">
+    <div class="row ">
         <div class="col">
             <h1>Current Details</h1>
             <div class="card">
-                <div class="'card-body">
-                    <img src="{{ request.user.profile.profile_pic.url }}", width="400" class="img-responsive">
-                </div>
                 <div class="card-footer">
                     <div class="py-3">Firstname : {{ request.user.profile.firstname }}</div>
                     <div class="py-3">Lastname : {{ request.user.profile.lastname }}</div>
@@ -38,7 +25,7 @@ font-weight: bold;
             </div>
         </div>
         <div class="col">
-            <div class="col-md-12">
+            <div class="col-md-12 ">
                 {% for message in messages %}
                 {% if message.level == DEDFAULT_MESSAGE_LEVELS.SUCCESS %}
                     <h6 class="success-message py-3 px-1 my-2 text-center">{{ message }}</h6>
@@ -49,10 +36,10 @@ font-weight: bold;
                 {% endif %}
                 {% endfor %}
                 <h1 class="text-center">Update Details</h1>
-                <div class="card py-2 px-2">
+                <div class="card py-2 px-3 ">
                     <form class="form" action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% form %}
+                        {{ form | bootstrap_horizontal }}
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

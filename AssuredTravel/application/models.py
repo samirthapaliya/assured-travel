@@ -11,9 +11,6 @@ class Itenerary(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
 
-    def is_valid(self):
-        pass
-
 
 class Destination(models.Model):
     name = models.CharField(max_length=200)
@@ -25,7 +22,7 @@ class Destination(models.Model):
 
 class Tour(models.Model):
     picture = models.FileField(upload_to='static/images/uploads', null=True)
-    num=models.IntegerField(null=True)
+    num = models.IntegerField(null=True)
     name = models.CharField(max_length=100, null=True)
     price = models.IntegerField(null=True)
     date = models.DateField(default=None)
@@ -39,6 +36,3 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.name
-
-    def is_valid(self):
-        pass
