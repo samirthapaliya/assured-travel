@@ -1,19 +1,22 @@
 {% extends 'layout-admin.html' %}
+{% load static %}
+{% load bootstrap %}
 {% block title %}
-Show Tours
+<title>Show Tour</title>
 {% endblock%}
 
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-
         <div class="col-md-12 offset">
             <h1 class="text-center"> Tours </h1>
-            <div class="card py-2 px-2">
+            <div class="card py-2 px-2 table-responsive">
                 <a class="btn btn-success btn-sm ml-auto mb-2"
                    href="{% url 'postTour' %}">Add New Tour</a>
-                <table class="table-striped">
-                    <tr>
+
+                <table class="table-responsive table-dark">
+                    <tr class="bg">
+                        <th>#</th>
                         <th>name</th>
                         <th>Price</th>
                         <th>date</th>
@@ -28,6 +31,7 @@ Show Tours
                     </tr>
                     {% for tour in tours %}
                     <tr>
+                        <td>{{ tour.num }}</td>
                         <td>{{ tour.name }}</td>
                         <td>{{ tour.price }}</td>
                         <td>{{ tour.date }}</td>

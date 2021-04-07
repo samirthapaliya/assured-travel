@@ -28,10 +28,10 @@ def Tours(request):
 
 
 def destination(request):
-    destination = Destination.objects.all()
+    destinations = Destination.objects.all()
     context = {
         'active_destination': 'active',
-        'key': destination,
+        'key': destinations,
     }
     return render(request, 'links/destination.html', context)
 

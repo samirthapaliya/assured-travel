@@ -14,8 +14,9 @@
     color:orange;
     }
 </style>
+<section>
 <div class="container">
-    <h1>Dashboard</h1>
+    <br><br>
     {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
     <h6 class="success_message py-3 px-1 my-2 text-center">{{message}}</h6>
@@ -37,9 +38,10 @@
         </div>
         <div class="col">
             <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
-                <div class="card-header text-center">Total Files</div>
+                <div class="card-header text-center">Add Itinerary</div>
                 <div class="card-body">
-                    <h1 class="card-title text-center">{{file}}</h1>
+                    <h1 class="card-title text-center"></h1>
+                    <h1 class="card-title text-center"><a href="{% url 'getIteneraryAd' %}">{{itinerary}}</a> </h1>
 
                 </div>
             </div>
@@ -67,6 +69,6 @@
         </div>
     </div>
 </div>
-
+</section>
 
 {% endblock %}
