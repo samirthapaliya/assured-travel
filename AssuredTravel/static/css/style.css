@@ -725,30 +725,23 @@
   font-weight: 400;
   color: #6E6E6E;
 }
-
 /*travel_variation_area end*/
 
-
-/*testimonial area start*/
-
-/*testimonial area end*/
 
 /*bradcam_bg_start*/
 .bradcam_bg_1 {
   background-image: url(../../static/images/banner/bradcam.png);
 }
 
-/* line 4, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
+
         .bradcam_bg_2 {
           background-image: url('');
         }
 
-/* line 7, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
+
 .bradcam_bg_3 {
   background-image: url(../../static/images/banner/bradcam3.png);
 }
-
-/* line 10, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
 .bradcam_bg_4 {
   background-image: url(../../static/images/banner/bradcam4.png);
 }

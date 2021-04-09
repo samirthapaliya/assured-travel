@@ -10,53 +10,13 @@ Add Tour
 <div class="container">
     <div class="row">
 
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 mx-auto offset-md-3">
             <h1 class="text-center">Add New Tour</h1>
-            <div class="card py-2 px-2">
+            <div class="card mx-auto py-2">
 
-                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                <form class="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
-
-                        <label for="Price">Price</label>
-                        <input type="number" class="form-control" id="Price" name="Price" aria-describedby="Price">
-
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" aria-describedby="date">
-
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" aria-describedby="location">
-
-                        <label for="main_Info">Main_Info</label>
-                        <textarea type="text" class="form-control" id="main_Info" name="main_Info" aria-describedby="main_Info"></textarea>
-
-                        <label for="itinerary">Itinerary</label>
-                        <select name="itinerary" class="form-control" id="mySelect" aria-describedby="itinerary" multiple>
-                            <option value="itinerary">{{ tour.itinerary }}</option>
-                        </select>
-
-                        <label for="country_Name">Country Name</label>
-                        <input type="text" class="form-control" id="country_Name" name="country_Name" aria-describedby="country_Name">
-
-                        <label for="description">Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description" aria-describedby="description"></textarea>
-
-                        <label for="reviews">Reviews</label>
-                        <select name="reviews" class="form-control" id="mySelect" aria-describedby="reviews" multiple>
-                            <option value="reviews">{{ tour.reviews }}</option>
-                        </select>
-
-                        <label for="destination">Destination</label>
-                        <select name="destination" class="form-control" id="mySelect" aria-describedby="destination" multiple>
-                            <option value="destination">{{ tour.destination }}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="picture">Picture</label>
-                        <input type="file" class="form-control" id="file" name="file" aria-describedby="file">
-                    </div>
+                    {{ form | bootstrap_horizontal }}
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

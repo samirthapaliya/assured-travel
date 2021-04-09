@@ -79,6 +79,7 @@ def view_detail(request, id):
 def destinationDetail(request, id):
     tour = Tour.objects.get(pk=id)
     destination = Destination.objects.filter(tour=tour)
+    print(destination)
     context = {
         'tour': tour,
         'destination': destination

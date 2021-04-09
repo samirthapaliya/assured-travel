@@ -19,7 +19,6 @@
                         <th>#</th>
                         <th>name</th>
                         <th>Price</th>
-                        <th>date</th>
                         <th>location</th>
                         <th>main_Info</th>
                         <th>itinerary</th>
@@ -31,22 +30,30 @@
                     </tr>
                     {% for tour in tours %}
                     <tr>
-                        <td>{{ tour.num }}</td>
+                        <td>{{ forloop.counter }}</td>
                         <td>{{ tour.name }}</td>
                         <td>{{ tour.price }}</td>
-                        <td>{{ tour.date }}</td>
                         <td>{{ tour.location }}</td>
                         <td>{{ tour.main_Info }}</td>
-                        <td>{{ tour.itinerary }}</td>
+                        <td>{% for itinerary in tour.itinerary.all %}
+                            {{ itinerary.name }}
+                            {% endfor %}
+                            </td>
                         <td>{{ tour.country_Name }}</td>
                         <td>{{ tour.description }}</td>
-                        <td>{{ tour.reviews }}</td>
-                        <td>{{ tour.destination }}</td>
+                        <td>{% for reviews in tour.reviews.all %}
+                            {{ reviews.user }}
+                            {% endfor %}
+                            </td>
+                        <td>{% for destination in tour.destination.all %}
+                            {{ destination.name }}
+                            {% endfor %}
+                            </td>
                         <td>{{ tour.picture }}</td>
 
 
                         <td> <img src="{{tour.picture.url}}" alt="file_image" width="100"></td>
-                        <td><a href="#"
+                        <td><a href="/admin-dashboard/updateTour/{{ tour.id }}"
                                class="btn btn-primary btn-sm">Edit</a> &nbsp;
                             <a href="#"
                                class="btn btn-danger btn-sm"

@@ -21,11 +21,9 @@ class Destination(models.Model):
 
 
 class Tour(models.Model):
-    picture = models.FileField(upload_to='static/images/uploads', null=True)
-    num = models.IntegerField(null=True)
+    picture = models.ImageField(upload_to='static/images/uploads', null=True)
     name = models.CharField(max_length=100, null=True)
     price = models.IntegerField(null=True)
-    date = models.DateField(default=None)
     location = models.CharField(max_length=100, null=True)
     main_Info = models.TextField(null=True)
     itinerary = models.ManyToManyField(Itenerary, default=None)

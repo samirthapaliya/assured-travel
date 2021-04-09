@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 
 from account.auth import admin_only
 from application.models import *
+from application.forms import TourForm
 
 
 @login_required
@@ -45,7 +46,7 @@ def register_user_admin(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.success, 'User Registration Successful')
+            messages.add_message(request, messages.SUCCESS, 'User Registration Successful')
             return redirect('/admin-dashboard')
         else:
             messages.add_message(request, messages.ERROR, "Please provide correct details")
@@ -70,7 +71,7 @@ def update_user_to_admin(request, user_id):
 @admin_only
 def postTour(request):
     if request.method == 'POST':
-        form = Tour(request.POST)
+        form = TourForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Tour Added Successfully')
@@ -78,7 +79,10 @@ def postTour(request):
         else:
             messages.add_message(request, messages.ERROR, 'Error in adding tour')
             return render(request, 'admins/postTour.html', {'form': form})
-    context = {"form": Tour}
+    else:
+        form = TourForm()
+
+    context = {"form": form}
     return render(request, 'admins/postTour.html', context)
 
 
@@ -92,6 +96,20 @@ def getTour(request):
 
     }
     return render(request, 'admins/showTour.html', context)
+
+
+def update_tour(request, tour_id):
+    instance = Tour.objects.get(id=tour_id)
+    if request.method == "POST":
+        form = TourForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin-dashboard/getTour')
+    context = {
+        'form': TourForm(instance=instance),
+        'activate_Tour': 'active'
+    }
+    return render(request, 'admins/updateTour.html', context)
 
 
 def postItenerary(request):
