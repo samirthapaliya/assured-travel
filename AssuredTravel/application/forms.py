@@ -9,6 +9,23 @@ class TourForm(ModelForm):
         fields = '__all__'
 
 
+class ItineraryForm(ModelForm):
+    class Meta:
+        model = Itenerary
+        fields = '__all__'
+
+
+class DestinationForm(ModelForm):
+    class Meta:
+        model = Destination
+        fields = '__all__'
+
+class ReviewsForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = '__all__'
+
+
 class TourSearchForm(ModelForm):
     class Meta:
         model = Tour

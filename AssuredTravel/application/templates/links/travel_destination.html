@@ -6,7 +6,7 @@
 
 {% block main_content %}
     <!-- bradcam_area  -->
-    <div class="bradcam_area " id="" style="background-image: {{ destination.picture.url }}">
+    <div class="bradcam_area " id="bg-tour" >
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -24,16 +24,16 @@
     <div class="popular_destination_area">
         <div class="container">
             <div class="row">
-                {% for i in destination %}
+                {% for i in tour %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single_place">
                         <div class="thumb">
-                            <img class="img" src="{{ tour.picture.url }}" alt="">
-                            <a href="#" class="prise">Rs.{{ tour.price }}</a>
+                            <img class="img" src="{{ i.picture.url }}" alt="">
+                            <a href="#" class="prise">Rs.{{ i.price }}</a>
                         </div>
                         <div class="place_info">
-                            <a href="{% url 'tour-detail' tour.id %}"><h3>{{ i.name }}</h3></a>
-                            <p>{{ tour.country_Name }}</p>
+                            <a href="{% url 'tour-detail' i.id %}"><h3>{{ i.name }}</h3></a>
+                            <p>{{ i.country_Name }}</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
                                      <i class="fa fa-star"></i>
@@ -57,7 +57,9 @@
     </div>
     <!-- popular_destination_area_end  -->
 
-
+    <script>
+        document.getElementById('bg-tour').style.background =" url('{{ destination.picture.url }}')";
+    </script>
 
 
 {% endblock %}

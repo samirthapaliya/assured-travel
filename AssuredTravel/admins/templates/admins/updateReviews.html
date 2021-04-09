@@ -1,0 +1,27 @@
+{% extends 'layout-admin.html' %}
+{% load bootstrap %}
+{% block title %}
+    <title>Update Reviews</title>
+{% endblock%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Update Reviews</h1>
+            <div class="card py-2 px-2">
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | bootstrap_horizontal }}
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content%}

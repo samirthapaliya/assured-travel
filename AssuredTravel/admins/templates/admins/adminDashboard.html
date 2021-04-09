@@ -46,6 +46,29 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+                    <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
+                        <div class="card-header text-center">Add Destination</div>
+                        <div class="card-body">
+                            <h1 class="card-title text-center"></h1>
+                            <h1 class="card-title text-center"><a href="{% url 'getDestinationAd' %}">{{destination}}</a> </h1>
+
+                        </div>
+                    </div>
+                </div>
+
+        <div class="col">
+            <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Add Reviews</div>
+                <div class="card-body">
+                    <h1 class="card-title text-center"></h1>
+                    <h1 class="card-title text-center"><a href="{% url 'getReviewsAd' %}">{{reviews}}</a> </h1>
+                </div>
+            </div>
+        </div>
 
     </div>
     <div class="row">

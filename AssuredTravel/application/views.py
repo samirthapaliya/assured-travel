@@ -9,11 +9,13 @@ from application.filter import TourFilter
 
 def Home(request):
     tours = Tour.objects.all()
-    filter = TourFilter(request.GET, queryset=tours)
+    # filter = TourFilter(request.GET, queryset=tours)
+    destinations = Destination.objects.all()[:6]
     context = {
         'tours': tours,
         'active_home': 'active',
-        'filter': filter,
+        # 'filter': filter,
+        'destinations':destinations,
     }
     return render(request, 'links/home.html', context)
 
@@ -31,7 +33,7 @@ def destination(request):
     destinations = Destination.objects.all()
     context = {
         'active_destination': 'active',
-        'key': destinations,
+        'destinations': destinations,
     }
     return render(request, 'links/destination.html', context)
 
@@ -77,9 +79,12 @@ def view_detail(request, id):
 
 
 def destinationDetail(request, id):
-    tour = Tour.objects.get(pk=id)
-    destination = Destination.objects.filter(tour=tour)
-    print(destination)
+    # tour = Tour.objects.get(pk=id)
+    # destination = Destination.objects.filter(tour=tour)
+    destination = Destination.objects.get(pk=id)
+    tour = Tour.objects.filter(destination=destination)
+    print(tour)
+    # print(destination)
     context = {
         'tour': tour,
         'destination': destination

@@ -12,12 +12,13 @@
     <div class="container">
         <div class="row mr-4">
             {% for i in key %}
-                <div class="col">
-                <img class="img" src="{{ i.picture }}" />
+                <div class=" card col-md-4">
+                <img class="img" src="{{ i.picture.url }}" />
                 <h1>{{i.name}}</h1>
                 <h3>{{ i.price }}</h3>
                 <h6>{{ i.location }}</h6>
                 <pre>{{ i.main_Info }}</pre>
+
                 <pre>{{ i.itinerary }}</pre>
                 <h6>{{ i.country_Name }}</h6>
                 </div>

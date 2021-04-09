@@ -72,18 +72,18 @@
                 </div>
             </div>
                 <div class="row">
-                {% for tour in tours %}
+                {% for dest in destinations %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
-                        {% for dest in tour.destination.all %}
+
                         <div class="thumb">
                             <img src="{{ dest.picture.url }}" alt="">
                         </div>
-                            {% endfor %}
+
                         <div class="content">
-                            <p class="d-flex align-items-center">{{ tour.name }}
-                                <a href="{% url 'travelDestination' tour.id %}">
-                                    {{ tour.destination.count }} Places
+                            <p class="d-flex align-items-center">{{ dest.name }}
+                                <a href="{% url 'travelDestination' dest.id %}">
+                                    {{ dest.tour_set.all.count }} Places
                                 </a>
                             </p>
 
