@@ -1070,10 +1070,11 @@
 
 /*=========================================destination page==================================*/
 .destination_banner_wrap {
-  /*background-image: url(../images/banner/destination.png);*/
+  /*!*background-image: url(../images/banner/destination.png);*!*/
   padding: 340px 0;
+  height: 60vh;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
 @media (max-width: 767px) {

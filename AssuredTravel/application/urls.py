@@ -11,5 +11,6 @@ urlpatterns = [
     path('tour-detail/<int:id>', views.view_detail, name="tour-detail"),
     path('postTourDetail', views.post_tour_detail),
     path('travelDestination/<int:id>', views.destinationDetail, name="travelDestination"),
-    path('search/', views.tour_search, name="search")
+    path('search/', views.tour_search, name="search"),
+    path('booking/<int:id>', views.book_user, name='booking'),
 ]

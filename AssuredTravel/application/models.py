@@ -8,12 +8,13 @@ class Review(models.Model):
 
 
 class Itenerary(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, null=True)
     description = models.TextField()
 
 
 class Destination(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=500, null=True)
     picture = models.FileField(upload_to='static/images/uploads/destination', null=True)
 
     def __str__(self):
@@ -34,3 +35,16 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.name
+
+class Booking(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, null=True, blank=True)
+    fullname = models.CharField(max_length=200, default=None, null=True, blank=True)
+    phone = models.CharField(max_length=200, default=None, null=True, blank=True)
+    persons = models.IntegerField(default=1, null=True, blank=True)
+    card_number = models.CharField(default=None, max_length=200, null=True, blank=True)
+    expiry_date = models.DateField(default=None, null=True, blank=True)
+    cvc = models.IntegerField(default=None, null=True, blank=True)
+
+    def __str__(self):
+        return str( self.user.username + "-->" + self.tour.name )

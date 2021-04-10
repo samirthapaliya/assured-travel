@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Booking</title>
+{% endblock %}
+
+
+{% block main_content %}
+<div class="bordered_1px"></div>
+                    <div class="contact_join">
+                        <h3>Contact for join</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-danger" value="Submit" type="submit">
+                </form>
+
+                    {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <p class="text-success">{{message}}</p>
+                        {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <p class="text-danger">{{message}}</p>
+                        {% endif %}
+                    {% endfor %}
+
+
+                    </div>
+
+{% endblock %}

@@ -5,7 +5,7 @@ from .forms import *
 import os
 from django.contrib import messages
 from application.filter import TourFilter
-
+from django.contrib.auth.views import login_required
 
 def Home(request):
     tours = Tour.objects.all()
@@ -24,7 +24,7 @@ def Tours(request):
     tours = Tour.objects.all()
     context = {
         'active_tours': 'active',
-        'key': tours,
+        'tours': tours,
     }
     return render(request, 'links/tours.html', context)
 
@@ -75,7 +75,7 @@ def view_detail(request, id):
         'tour': tour,
         'itinerary': itinerary
     }
-    return render(request, 'links/destination.html', context)
+    return render(request, 'links/destination_detail.html', context)
 
 
 def destinationDetail(request, id):
@@ -101,3 +101,28 @@ def tour_search(request):
         'filter_qs': filter_qs
     }
     return render(request, 'links/search_view.html', context)
+
+
+@login_required(login_url="login")
+def book_user(request, id):
+    tour = Tour.objects.get(id=id)
+    user = request.user
+    form = BookForm()
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.tour = tour
+            instance.user = user
+            instance.save()
+            form = BookForm()
+            messages.add_message(request, messages.SUCCESS, "Booked Successfully")
+            return redirect('homeAP')
+        else:
+            messages.add_message(request, messages.ERROR, "Couldnot book")
+            return render(request, 'links/booking_form.html', {'form': form})
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'links/booking_form.html', context)

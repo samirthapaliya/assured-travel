@@ -30,3 +30,11 @@ class TourSearchForm(ModelForm):
     class Meta:
         model = Tour
         fields = ['location']
+
+
+class BookForm(ModelForm):
+    class Meta:
+        model = Booking
+        fields = '__all__'
+        exclude = ['user', 'tour']
+

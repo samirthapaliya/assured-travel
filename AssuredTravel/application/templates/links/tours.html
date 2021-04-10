@@ -9,20 +9,34 @@
 <!--main body-->
 {% block main_content %}
 
-    <div class="container">
-        <div class="row mr-4">
-            {% for i in key %}
-                <div class=" card col-md-4">
-                <img class="img" src="{{ i.picture.url }}" />
-                <h1>{{i.name}}</h1>
-                <h3>{{ i.price }}</h3>
-                <h6>{{ i.location }}</h6>
-                <pre>{{ i.main_Info }}</pre>
-
-                <pre>{{ i.itinerary }}</pre>
-                <h6>{{ i.country_Name }}</h6>
+  <!-- popular place start  -->
+    <div class="popular_places_area">
+        <div class="container">
+            <div class="row">
+                {% for tour in tours %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_place">
+                        <div class="thumb">
+                            <img src="{{ tour.picture.url }}" alt="">
+                            <a href="#" class="prise">Rs.{{ tour.price }}</a>
+                        </div>
+                        <div class="place_info">
+                            <a href="{% url 'tour-detail' tour.id %}"><h3>{{ tour.location }}</h3></a>
+                            <p>{{ tour.country_Name }}</p>
+                            <div class="rating_days d-flex justify-content-between">
+                                <span id="review-star" class="d-flex justify-content-center align-items-center">
+                                     <a href="#">( <span id="review-count">{{ tour.reviews.count }}</span> Review)</a>
+                                </span>
+                                <div class="days">
+                                    <i class="fa fa-clock-o"></i>
+                                    <a href="#">{{ tour.itinerary.count }} Days</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            {%endfor%}
+                {% endfor %}
+            </div>
         </div>
     </div>
 

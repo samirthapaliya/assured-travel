@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+<!--title-->
+{% block title %}
+<title>Destination</title>
+{% endblock %}
+
+
+
+<!--main body-->
+{% block main_content %}
+<div id="bg-image" class="destination_banner_wrap overlay">
+        <div class="destination_text text-center">
+            <h3>{{ tour.name }}</h3>
+            <p>{{ tour.main_Info }}</p>
+        </div>
+    </div>
+
+    <div class="destination_details_info">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="destination_info">
+                        <h3>Description</h3>
+                    <p>{{ tour.description }}</p>
+                    {% for ite in itinerary %}
+                            <h4>{{ ite.name }}</h4>
+                            <p>{{ ite.description }}</p>
+                    {% endfor %}
+                    </div>
+                <button onclick="book()" class="btn btn-outline-success">Book now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bg-image').style.background =" url('{{ tour.picture.url }}')";
+        function book(){
+            document.location = "{% url 'booking' tour.id %}"
+        }
+    </script>
+
+{% endblock %}
