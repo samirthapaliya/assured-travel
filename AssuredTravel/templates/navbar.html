@@ -4,7 +4,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark ">
-  <a class="navbar-brand" href="#">Assured Travel</a>
+  <a class="navbar-brand" href="{% url 'homeAP'%}">Assured Travel</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,7 +24,7 @@
       </li>
 
       <li class="nav-item">
-          <a class="{{ activate_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
+          <a class="{{ active_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
@@ -35,11 +35,22 @@
     <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
           {% if request.user.is_authenticated %}
-              <li class="nav-item {{active_profile}}">
-                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'profileAc' %}">Profile</a>
-              </li>
-              <li class="nav-item ">
-                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logoutAc' %}">Logout</a>
+              <div class="dropdown navbar-btn2">
+                <button class="btn boxed-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome {{ user }}
+                </button>
+                  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item {{ active_profile }}" href="{% url 'profileAc' %}">Profile</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+              </div>
+
+              <li class="navbar-btn2 ">
+                <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logoutAc' %}">
+
+                    Logout</a>
               </li>
           {% else %}
               <li class="navbar-btn1">

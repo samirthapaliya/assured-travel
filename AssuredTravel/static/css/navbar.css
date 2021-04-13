@@ -26,10 +26,17 @@
     text-decoration: none;
 
 }
+.dropdown-menu{
+    background: black !important;
+    width: 100%;
+}
 
 .dropdown-menu a{
-    color: deeppink;
-    background: black;
+    color: white;
+    background: transparent;
+}
+.dropdown-menu a:hover{
+    background: deeppink;
 }
 
 
@@ -65,3 +72,17 @@
 /*.active{*/
 /*    color: rgba(155, 165, 170, 1);*/
 /*}*/
+
+.dropdown-item{
+    background: white;
+    color: #1F1F1F;
+}
+
+.active{
+    background-color: #1EC6B6;
+    border-style: groove;
+
+
+
+
+}

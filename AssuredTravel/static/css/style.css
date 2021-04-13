@@ -728,25 +728,6 @@
 /*travel_variation_area end*/
 
 
-/*bradcam_bg_start*/
-.bradcam_bg_1 {
-  background-image: url(../../static/images/banner/bradcam.png);
-}
-
-
-        .bradcam_bg_2 {
-          background-image: url('');
-        }
-
-
-.bradcam_bg_3 {
-  background-image: url(../../static/images/banner/bradcam3.png);
-}
-.bradcam_bg_4 {
-  background-image: url(../../static/images/banner/bradcam4.png);
-}
-/**/
-
 /*==================================================about us page=====================================*/
 .bradcam_area {
   background-size: cover;
@@ -1210,3 +1191,4 @@
   text-align: center;
 }
 
+/*============================Login page & register page======================*/
