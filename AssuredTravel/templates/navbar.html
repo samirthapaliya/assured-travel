@@ -12,23 +12,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-          <a class="{{ active_home }}" href="{% url 'homeAP' %}">Home <span class="sr-only">(current)</span></a>
+          <a class="{{ active_home }}" href="{% url 'homeAP' %}">Home <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
-          <a class="{{ active_tours}}" href="{% url 'tourAP' %}">Tour<span class="sr-only">(current)</span></a>
+          <a class="{{ active_tours}}" href="{% url 'tourAP' %}">Tour<span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
-          <a class="{{ active_destination }}" href="{% url 'destinationAP' %}">Destination<span class="sr-only">(current)</span></a>
+          <a class="{{ active_destination }}" href="{% url 'destinationAP' %}">Destination<span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
-          <a class="{{ active_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only">(current)</span></a>
+          <a class="{{ active_about }}" href="{% url 'aboutAP' %}">About Us<span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
-          <a class="{{ active_contact }}" href="{% url 'contactAP' %}">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="{{ active_contact }}" href="{% url 'contactAP' %}">Contact Us <span class="sr-only"></span></a>
       </li>
     </ul>
 
@@ -41,9 +41,8 @@
                 </button>
                   <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item {{ active_profile }}" href="{% url 'profileAc' %}">Profile</a>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item {{ active_chapas }}" href="{% url 'change_password' %}">Change Password</a>
+
                   </div>
               </div>
 

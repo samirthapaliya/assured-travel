@@ -9,6 +9,7 @@ from .auth import unauthenticated_user
 from .forms import LoginForm
 from application.models import *
 
+
 from .forms import ProfileForm
 
 
@@ -77,3 +78,10 @@ def user_account(request):
     return render(request, 'account/profile.html', context)
 
 
+# def change_password(request):
+#
+#     context = {
+#         'active_chapas': 'active'
+#     }
+#
+#     return render(request, 'account/changePassword.html', context)
