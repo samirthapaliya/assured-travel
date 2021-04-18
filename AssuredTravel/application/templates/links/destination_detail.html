@@ -18,9 +18,12 @@
     <div class="destination_details_info">
         <div class="container">
             <div class="row justify-content-center">
+
                 <div class="col-lg-8 col-md-9">
+                <a href="{% url 'booking' tour.id %}" class="btn btn-outline-success text-lg-right">Book now</a>
                     <div class="destination_info">
                         <h2>Description</h2>
+
                     <p>{{ tour.description }}
                         <h2>Itinerary</h2>
 
@@ -30,10 +33,10 @@
                     {% endfor %}
                     </div>
 
-                </div>
+            <div class=" ">
+
             </div>
-            <div class="position-absolute top-0 end-0">
-                <a href="{% url 'booking' tour.id %}" class="btn btn-outline-success ">Book now</a>
+                </div>
             </div>
 
         </div>

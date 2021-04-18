@@ -7,7 +7,7 @@
 
 {% block main_content %}
     <!-- bradcam_area  -->
-     <div class="bradcam_area bradcam_bg_4">
+     <div class="bradcam_area bradcam_bg_contact">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -21,46 +21,14 @@
     </div>
     <!--/ bradcam_area  -->
     <!-- ================ contact section start ================= -->
+    <br>
     <section class="contact-section">
             <div class="container">
-                <div class="d-none d-sm-block mb-5 pb-4">
-                    <div id="map" style="height: 480px; position: relative; overflow: hidden;"> </div>
-                    <script>
-                        function initMap() {
-                            var uluru = {
-                                lat: -25.363,
-                                lng: 131.044
-                            };
-                            var grayStyles = [{
-                                    featureType: "all",
-                                    stylers: [{
-                                            saturation: -90
-                                        },
-                                        {
-                                            lightness: 50
-                                        }
-                                    ]
-                                },
-                                {
-                                    elementType: 'labels.text.fill',
-                                    stylers: [{
-                                        color: '#ccdee9'
-                                    }]
-                                }
-                            ];
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                center: {
-                                    lat: -31.197,
-                                    lng: 150.744
-                                },
-                                zoom: 9,
-                                styles: grayStyles,
-                                scrollwheel: false
-                            });
-                        }
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-                    </script>
+                <div class="col-lg-12">
+                    <div id="map" style="height: 480px;   position: relative; overflow: hidden;">
+                        <iframe class="large-width" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3530.8628328136033!2d85.32430721453584!3d27.752376482773276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19e5559b2a87%3A0x79287ad7ce3a23f2!2sAssured%20Travel%20%26%20Tours!5e0!3m2!1sen!2snp!4v1618768384779!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
                 </div>
 
         <div class="row">
@@ -97,7 +65,9 @@
                         </form>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
+                        <h3>Contact</h3>
                         <div class="media contact-info">
+
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
                                 <h3>Kathmandu Nepal</h3>

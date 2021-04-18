@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>View your Bookings</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 offset">
+            <h1 class="text-center"> Tours </h1>
+            <div class="card py-2 px-2 table-responsive">
+
+                <table class="table table-striped table-dark">
+                    <tr class="bg">
+                        <th>#</th>
+                         <th>Tour</th>
+                        <th>Fullname</th>
+                        <th>Phone</th>
+                        <th>Persons</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for i in bookings %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.tour }}</td>
+                        <td>{{ i.fullname }}</td>
+                        <td>{{ i.phone }}</td>
+                        <td>{{ i.persons }}</td>
+                        <td>{{ i.status }}</td>
+
+                    <td>
+                        <a href="/admin-dashboard/deleteBooking/{{ i.id }}"
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure want to delete this file?')">
+                                Cancel</a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content%}

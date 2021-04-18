@@ -69,7 +69,7 @@ def post_tour_detail(request):
 
 def view_detail(request, id):
     tour = Tour.objects.get(pk=id)
-    itinerary = Itenerary.objects.filter(tour=tour)
+    itinerary = Itinerary.objects.filter(tour=tour)
     context = {
         'tour': tour,
         'itinerary': itinerary

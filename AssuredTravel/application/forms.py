@@ -11,7 +11,7 @@ class TourForm(ModelForm):
 
 class ItineraryForm(ModelForm):
     class Meta:
-        model = Itenerary
+        model = Itinerary
         fields = '__all__'
 
 
@@ -37,4 +37,10 @@ class BookForm(ModelForm):
     class Meta:
         model = Booking
         fields = '__all__'
-        exclude = ['user', 'tour']
+        exclude = ['user', 'tour','status']
+
+
+class BookFormUpdate(ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['user', 'fullname', 'status']

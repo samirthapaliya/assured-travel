@@ -1,0 +1,99 @@
+/* footer style */
+.footer_info{
+    width: 100%;
+    color: white;
+    position: relative;
+    background-color: black;
+    margin: 0;
+    display: flex;
+    padding: 50px 0;
+}
+.footer_lnk{
+    text-decoration: none;
+    transition: .5s;
+    color: white;
+}
+ul, li{
+    list-style-type: none;
+}
+.footer_info .footer_width{
+    padding: 0 15px;
+}
+.footer_info h2{
+    margin-bottom: 20px;
+    color: white;
+}
+.about{
+    margin-left: 4%;
+    text-align: justify;
+
+}
+
+
+.about, .contact{
+    width: 40%;
+
+}
+.link{
+    width: 20%;
+    margin-left: 5%;
+}
+.social-media{
+    margin-top: 30px;
+}
+.social-media ul{
+    display: flex;
+}
+.social-media ul li a{
+    display: inline-block;
+    margin-right: 50px;
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+}
+.social-media ul li a:hover{
+    background-color: white;
+    color: black;
+}
+.link ul li{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.contact{
+    margin-left: 2%;
+}
+.contact ul li{
+    display: flex;
+    align-items:baseline;
+    margin-bottom: 15px;
+    margin-left: -5%;
+}
+.contact ul li span{
+    margin-right: 20px;
+}
+.copy-right{
+    padding: 15px 0;
+    text-align: center;
+    background-color: rgb(66, 66, 66);
+}
+@media screen and (max-width: 992px){
+    .about, .contact{
+        width: 30%;
+    }
+    .link{
+        width: 30%;
+    }
+}
+@media screen and (max-width:767px){
+    .about, .contact, .link{
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .footer_info{
+        flex-direction: column;
+    }
+}

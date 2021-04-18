@@ -730,12 +730,20 @@
 
 /*==================================================about us page=====================================*/
 .bradcam_area {
+
   background-size: cover;
   background-position: center center;
   padding: 175px 0;
   background-repeat: no-repeat;
   position: relative;
   z-index: 0;
+}
+.bradcam_bg_about{
+  background-image: url("../images/uploads/lake-zurich-3840x2160-forest-sky-mountains-4k-17798.jpg");
+}
+
+.bradcam_bg_contact{
+  background-image: url("../images/uploads/mohamed-thasneem-3bAblStd-IY-unsplash.jpg");
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

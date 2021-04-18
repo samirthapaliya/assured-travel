@@ -15,8 +15,8 @@ urlpatterns = [
 
     path('getItenerary/', views.getItenerary, name="getIteneraryAd"),
     path('postItenerary', views.postItenerary, name= "postItenerary"),
-    path('updateItenerary/<int:ite_id>', views.update_tour),
-    path('deleteItenerary/<int:ite_id>', views.delete_tour),
+    path('updateItenerary/<int:ite_id>', views.update_itinerary),
+    path('deleteItenerary/<int:ite_id>', views.delete_itinerary),
 
     path('getDestination/', views.getDestination, name="getDestinationAd"),
     path('postDestination', views.postDestination, name= "postDestinationAd"),
@@ -27,4 +27,9 @@ urlpatterns = [
     path('postReviews', views.postReviews, name= "postReviewsAd"),
     path('updateReviews/<int:rev_id>', views.updateReviews),
     path('deleteReviews/<int:rev_id>', views.deleteReviews),
+
+    path('getBooking/', views.getBooking, name="getBookingAd"),
+    path('postBooking', views.postBooking, name= "postBookingAd"),
+    path('updateBooking/<int:bk_id>', views.updateBooking),
+    path('deleteBooking/<int:bk_id>', views.deleteBooking),
 ]

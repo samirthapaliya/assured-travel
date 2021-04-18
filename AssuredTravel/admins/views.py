@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 from account.auth import admin_only
-from application.models import *
 from application.forms import *
 
 
@@ -13,7 +12,7 @@ from application.forms import *
 def admin_dashboard(request):
     tour = Tour.objects.all()
     tour_count = tour.count()
-    itinerary = Itenerary.objects.all()
+    itinerary = Itinerary.objects.all()
     itinerary_count = itinerary.count()
     destination = Destination.objects.all()
     destination_count = destination.count()
@@ -22,6 +21,8 @@ def admin_dashboard(request):
     users = User.objects.all()
     user_count = users.filter(is_staff=0).count()
     admin_count = users.filter(is_staff=1).count()
+    booking = Booking.objects.all()
+    booking_count = booking.count()
     context = {
         'tour': tour_count,
         'user': user_count,
@@ -29,6 +30,7 @@ def admin_dashboard(request):
         'destination': destination_count,
         'reviews': reviews_count,
         'admin': admin_count,
+        'booking': booking_count,
         'active_dashboard': 'active',
     }
     return render(request, 'admins/adminDashboard.html', context)
@@ -125,7 +127,7 @@ def delete_tour(request, tour_id):
 
 # for itinerary
 def getItenerary(request):
-    itinerary = Itenerary.objects.all()
+    itinerary = Itinerary.objects.all()
     context = {
         'itinerary': itinerary,
     }
@@ -150,21 +152,35 @@ def postItenerary(request):
 
 
 def update_itinerary(request, ite_id):
-    ins = Itenerary.objects.get(id=ite_id)
+    ins = Itinerary.objects.get(id=ite_id)
     if request.method == "POST":
         form = ItineraryForm(request.POST, request.FILES, instance=ins)
         if form.is_valid():
             form.save()
             return redirect('/admin-dashboard/getItenerary')
     context = {
-        'form': TourForm(instance=ins),
+        'form': ItineraryForm(instance=ins),
         'activate_Itinerary': 'active'
     }
     return render(request, 'admins/updateItenerary.html', context)
 
+#
+# def update_itinerar(request, iti_id):
+#     instance = Itenerary.objects.get(id=iti_id)
+#     if request.method == "POST":
+#         form = ItineraryForm(request.POST, request.FILES, instance=instance)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/admin-dashboard/getTour')
+#     context = {
+#         'form': TourForm(instance=instance),
+#         'activate_Tour': 'active'
+#     }
+#     return render(request, 'admins/updateTour.html', context)
+
 
 def delete_itinerary(request, ite_id):
-    itinerary = Itenerary.objects.get(id=ite_id)
+    itinerary = Itinerary.objects.get(id=ite_id)
     itinerary.delete()
     return redirect('getIteneraryAd')
 
@@ -261,3 +277,53 @@ def deleteReviews(request, rev_id):
     reviews = Review.objects.get(id=rev_id)
     reviews.delete()
     return redirect('getReviewsAd')
+
+
+# for Booking
+def getBooking(request):
+    booking = Booking.objects.all()
+    context = {
+        'booking': booking,
+    }
+    return render(request, 'admins/showBooking.html', context)
+
+
+def postBooking(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Booking Added Successfully')
+            return redirect('/admin-dashboard/getBooking')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error in adding Booking')
+            return render(request, 'admins/postBooking.html', {'form': form})
+    else:
+        form = BookForm()
+
+    context = {"form": form}
+    return render(request, 'admins/postBooking.html', context)
+
+
+def updateBooking(request, bk_id):
+    booking = Booking.objects.get(id=bk_id)
+    if request.method == "POST":
+        form = BookFormUpdate(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin-dashboard/getBooking')
+    context = {
+        'form': BookFormUpdate(instance=booking),
+        'active_reviews': 'active'
+    }
+    return render(request, 'admins/updateBooking.html', context)
+
+
+def deleteBooking(request, bk_id):
+    booking = Booking.objects.get(id=bk_id)
+    booking.delete()
+    return redirect('getBookingAd')
+
+
+

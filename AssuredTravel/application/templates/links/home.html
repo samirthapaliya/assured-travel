@@ -33,7 +33,7 @@
 {#    </div>#}
 {#</div>#}
 
-     <div class="container-fluid header" id="header">
+     <div class="container-fluid header causerol" id="header">
           <div class="row height-max align-items-center text-left">
               <div class="col col-md-9  ml-auto pr-5">
                   <h5 class="title-heading d-inline-block p-2 text-uppercase">GET YOUR BEST DEAL NOW</h5>
@@ -81,15 +81,15 @@
         <div class="container">
            <div class="d-flex">
 
-                <div class="col-lg-6">
+                <div class="col-lg-10">
                     <div class="section_title text-center mb_70">
                         <h3>Popular Destination</h3>
                         <p>Our top destinations. See them by countries.</p>
                     </div>
                 </div>
-               <div class="col-lg-3 text-right">
-                       <button class="btn"><a href="#popular-destination" class="boxed-btn4">Explore Now</a> </button>
-                    </div>
+               <div class="col-lg-3 ">
+                       <button class="btn"><a href="{% url 'destinationAP' %}" class="boxed-btn4">View All</a> </button>
+                </div>
 
             </div>
                 <div class="row">
@@ -156,12 +156,15 @@
     <!-- popular place start  -->
     <div class="popular_places_area">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="d-flex ">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
                         <h3>Popular Places</h3>
                         <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
                     </div>
+                </div>
+                <div class="col-lg-6 text-right">
+                       <button class="btn"><a href="{% url 'tourAP' %}" class="boxed-btn4">View All</a> </button>
                 </div>
             </div>
             <div class="row">
@@ -177,11 +180,11 @@
                             <p>{{ tour.country_Name }}</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span id="review-star" class="d-flex justify-content-center align-items-center">
-                                     <a href="#">( <span id="review-count">{{ tour.reviews.count }}</span> Review)</a>
+                                     <a href="#"> <span id="review-count">{{ tour.reviews.count }}</span> Review</a>
                                 </span>
                                 <div class="days">
                                     <i class="fa fa-clock-o"></i>
-                                    <a href="#">{{ tour.itinerary.count }} Days</a>
+                                    <a href="#">{{ tour.itinerary_set.all.count }} Days</a>
                                 </div>
                             </div>
                         </div>

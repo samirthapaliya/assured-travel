@@ -5,9 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 from .auth import unauthenticated_user
-from .forms import LoginForm
-from .forms import ProfileForm
-from .models import Profile
+from .forms import *
+from .models import *
 
 
 @unauthenticated_user
@@ -68,10 +67,20 @@ def user_account(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Account update Successful for ' + str(request.user.profile))
-            return redirect('/profile')
+            return redirect('profileAc')
     context = {
         'form': form,
         'active_profile': 'active',
     }
-    return render(request, 'account/profile.html', context)
+    return render(request, 'account/profileDetail.html', context)
 
+
+def viewMyBooking(request):
+    user = request.user
+    bookings = Booking.objects.filter(user=user)
+    print(bookings)
+
+    context = {
+        'bookings': bookings
+    }
+    return render(request, 'account/orderDetail.html', context)

@@ -43,8 +43,16 @@
     font-weight: 700;
     font-size: 1.9rem;
 }
-@media screen and (min-width:768px){
-    .title{
-        font-size:3rem;
-    }
+
+@media (max-width: 767px) {
+  .header{
+      align-items: center;
+  }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .causerol .row{
+    margin-bottom: 30px;
+  }
+}
+

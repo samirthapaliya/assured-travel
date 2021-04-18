@@ -40,12 +40,12 @@
                     Welcome {{ user }}
                 </button>
                   <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item {{ active_profile }}" href="{% url 'profileAc' %}">Profile</a>
                     {% if request.user.is_staff %}
                       <a class="dropdown-item {{ active_dashboard }}" href="{% url 'adminDashboardAd' %}">Admin Dashboard</a>
                     {% endif %}
-                    <a class="dropdown-item {{ active_chapas }}" href="{% url 'change_password' %}">Change Password</a>
-
+                      <a class="dropdown-item {{ active_profile }}" href="{% url 'profileAc' %}">Profile</a>
+                      <a class="dropdown-item {{ active_order }}" href="{% url 'orderD' %}">Orders</a>
+                      <a class="dropdown-item {{ active_chapas }}" href="{% url 'change_password' %}">Change Password</a>
                   </div>
               </div>
 
