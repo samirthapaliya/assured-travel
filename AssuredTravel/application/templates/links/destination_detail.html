@@ -20,24 +20,28 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-9">
                     <div class="destination_info">
-                        <h3>Description</h3>
-                    <p>{{ tour.description }}</p>
+                        <h2>Description</h2>
+                    <p>{{ tour.description }}
+                        <h2>Itinerary</h2>
+
                     {% for ite in itinerary %}
                             <h4>{{ ite.name }}</h4>
                             <p>{{ ite.description }}</p>
                     {% endfor %}
                     </div>
-                <button onclick="book()" class="btn btn-outline-success">Book now</button>
+
                 </div>
             </div>
+            <div class="position-absolute top-0 end-0">
+                <a href="{% url 'booking' tour.id %}" class="btn btn-outline-success ">Book now</a>
+            </div>
+
         </div>
     </div>
 
     <script>
         document.getElementById('bg-image').style.background =" url('{{ tour.picture.url }}')";
-        function book(){
-            document.location = "{% url 'booking' tour.id %}"
-        }
+
     </script>
 
 {% endblock %}

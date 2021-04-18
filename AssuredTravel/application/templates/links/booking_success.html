@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+
+{% block title %}
+<title>Booking</title>
+{% endblock %}
+
+
+{% block main_content %}
+<h1> Your booking for {{ tour.name }} is successful</h1>
+    <button class="btn-success"><a href="{% url 'homeAP' %}">Back To home</a></button>
+
+{% endblock %}

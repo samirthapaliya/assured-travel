@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <!--External links-->
     <link rel="stylesheet"  href="{% static 'css/style.css' %}"/>
-    {% include 'navbar-admin.html' %}
+
 
 </head>
 <body>
 <div class="main">
+        {% include 'navbar-admin.html' %}
     {% block content %}
+
     {% endblock %}
 </div>
 

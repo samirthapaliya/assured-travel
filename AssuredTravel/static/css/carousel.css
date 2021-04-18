@@ -1,0 +1,50 @@
+.header{
+    /*clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);*/
+    color: white;
+    text-align: center;
+    overflow: hidden; /* it will make sure that image is moving not the header itself */
+}
+
+.height-max{
+    min-height: calc(100vh - 66px); /*100 view height(vh) set = 100% of of any screen size*/
+    background: url("../images/uploads/mohamed-thasneem-3bAblStd-IY-unsplash.jpg") fixed;
+    background-position: center;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    animation-name: zoom;
+    animation-duration: 10s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+@keyframes zoom{   /* animation */
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2) translateX(-5%);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.text-uppercase{
+    color: white;
+
+}
+
+.title-heading{
+    background: white;
+    color: #040E27;
+    border-left: 0.3rem solid blue;
+}
+.title{
+    font-weight: 700;
+    font-size: 1.9rem;
+}
+@media screen and (min-width:768px){
+    .title{
+        font-size:3rem;
+    }
+}

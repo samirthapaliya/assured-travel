@@ -20,6 +20,7 @@ class DestinationForm(ModelForm):
         model = Destination
         fields = '__all__'
 
+
 class ReviewsForm(ModelForm):
     class Meta:
         model = Review
@@ -37,4 +38,3 @@ class BookForm(ModelForm):
         model = Booking
         fields = '__all__'
         exclude = ['user', 'tour']
-

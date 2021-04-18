@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +11,17 @@
 
 
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/carousel.css">
     <link rel="stylesheet" href="../static/css/properties.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {#    for causorel#}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
 </head>
 <body>
-{% include 'navbar.html' %}
+
 
 <div class="main">
+    {% include 'navbar.html' %}
     {% block main_content %}
     {% endblock %}
 </div>

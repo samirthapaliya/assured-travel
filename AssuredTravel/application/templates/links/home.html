@@ -32,6 +32,22 @@
 {#        </a>#}
 {#    </div>#}
 {#</div>#}
+
+     <div class="container-fluid header" id="header">
+          <div class="row height-max align-items-center text-left">
+              <div class="col col-md-9  ml-auto pr-5">
+                  <h5 class="title-heading d-inline-block p-2 text-uppercase">GET YOUR BEST DEAL NOW</h5>
+                  <h2 class="text-uppercase my-2 title">Explore the world </h2>
+                  <h3 class="text-uppercase">At single place</h3>
+                  <button class="btn"><a href="#popular-destination" class="boxed-btn4">Explore Now</a> </button>
+            </div>
+          </div>
+      </div>
+
+
+
+
+
     <!-- where_togo_area_start  -->
     <div class="where_togo_area">
         <div class="container">
@@ -61,15 +77,20 @@
     <!-- where_togo_area_end  -->
 
     <!-- popular_destination_area_start  -->
-    <div class="popular_destination_area">
+    <div class="popular_destination_area" id="popular-destination">
         <div class="container">
-           <div class="row justify-content-center">
+           <div class="d-flex">
+
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
                         <h3>Popular Destination</h3>
                         <p>Our top destinations. See them by countries.</p>
                     </div>
                 </div>
+               <div class="col-lg-3 text-right">
+                       <button class="btn"><a href="#popular-destination" class="boxed-btn4">Explore Now</a> </button>
+                    </div>
+
             </div>
                 <div class="row">
                 {% for dest in destinations %}

@@ -13,3 +13,6 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = '__all__'
         exclude = ['user', 'username']
+
+    def __str__(self):
+        return self.username

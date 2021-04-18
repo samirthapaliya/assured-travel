@@ -1,16 +1,13 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from .models import Profile
 
 from .auth import unauthenticated_user
 from .forms import LoginForm
-from application.models import *
-
-
 from .forms import ProfileForm
+from .models import Profile
 
 
 @unauthenticated_user
@@ -64,24 +61,17 @@ def logout_user(request):
 @login_required
 def user_account(request):
     profile = request.user.profile
+
     form = ProfileForm(instance=profile)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Account update Successful for ' + str(request.user.profile))
-            return redirect('profileAc')
+            return redirect('/profile')
     context = {
         'form': form,
         'active_profile': 'active',
     }
     return render(request, 'account/profile.html', context)
 
-
-# def change_password(request):
-#
-#     context = {
-#         'active_chapas': 'active'
-#     }
-#
-#     return render(request, 'account/changePassword.html', context)

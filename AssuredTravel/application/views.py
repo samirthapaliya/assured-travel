@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import *
-from .forms import *
-import os
 from django.contrib import messages
-from application.filter import TourFilter
 from django.contrib.auth.views import login_required
+from django.shortcuts import render, redirect
+
+from application.filter import TourFilter
+from .forms import *
+
 
 def Home(request):
     tours = Tour.objects.all()
@@ -15,7 +14,7 @@ def Home(request):
         'tours': tours,
         'active_home': 'active',
         # 'filter': filter,
-        'destinations':destinations,
+        'destinations': destinations,
     }
     return render(request, 'links/home.html', context)
 
@@ -106,23 +105,56 @@ def tour_search(request):
 @login_required(login_url="login")
 def book_user(request, id):
     tour = Tour.objects.get(id=id)
-    user = request.user
-    form = BookForm()
+    self_user = request.user
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.tour = tour
-            instance.user = user
+            instance.user = self_user
             instance.save()
-            form = BookForm()
             messages.add_message(request, messages.SUCCESS, "Booked Successfully")
-            return redirect('homeAP')
+            return redirect('bookingSuccess')
         else:
-            messages.add_message(request, messages.ERROR, "Couldnot book")
+            messages.add_message(request, messages.ERROR, "Couldn't book")
             return render(request, 'links/booking_form.html', {'form': form})
 
     context = {
-        'form': form,
+        'form': BookForm(),
     }
     return render(request, 'links/booking_form.html', context)
+
+
+def book_success(request):
+    return render(request, 'links/booking_success.html')
+
+
+# @login_required(login_url="login")
+# def tickets(request):
+#     inst_user = request.user
+#     if request.method == 'POST':
+#         form = TicketForm(request.POST)
+#         if form.is_valid():
+#             instance = form.save(commit=False)
+#             instance.ticket_user = inst_user
+#             instance.save()
+#             messages.add_message(request, messages.SUCCESS, "TIcket added successfully")
+#             return redirect('ticket_form')
+#         else:
+#             messages.add_message(request, messages.ERROR, "Couldnot buy ticket")
+#             return render(request, 'tickets/ticket_form.html', {'form':form})
+#     context = {
+#         'form':  TicketForm(),
+#         'activate_ticket': 'active'
+#     }
+#     print(context)
+#     return render(request, 'tickets/ticket_form.html', context)
+#
+# @login_required(login_url="login")
+# def ticket_lists(request):
+#     user = request.user
+#     ticket = Ticket.objects.filter(ticket_user=user)
+#     context = {
+#         'ticket': ticket
+#     }
+#     return render(request, 'tickets/ticket_list.html', context)

@@ -41,6 +41,9 @@
                 </button>
                   <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item {{ active_profile }}" href="{% url 'profileAc' %}">Profile</a>
+                    {% if request.user.is_staff %}
+                      <a class="dropdown-item {{ active_dashboard }}" href="{% url 'adminDashboardAd' %}">Admin Dashboard</a>
+                    {% endif %}
                     <a class="dropdown-item {{ active_chapas }}" href="{% url 'change_password' %}">Change Password</a>
 
                   </div>
@@ -48,7 +51,6 @@
 
               <li class="navbar-btn2 ">
                 <a class="btn boxed-btn my-2 my-sm-0" href="{% url 'logoutAc' %}">
-
                     Logout</a>
               </li>
           {% else %}
