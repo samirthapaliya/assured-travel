@@ -10,5 +10,3 @@ class Profile(models.Model):
     email = models.EmailField(null=True, unique=True)
     phone = models.CharField(null=True, max_length=10)
     created_date = models.DateTimeField(auto_now_add=True, null=True)
-#
-# class order(models.Model):

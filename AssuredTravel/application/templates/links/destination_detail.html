@@ -8,7 +8,7 @@
 
 <!--main body-->
 {% block main_content %}
-<div id="bg-image" class="destination_banner_wrap overlay">
+    <div id="bg-image" class="destination_banner_wrap overlay">
         <div class="destination_text text-center">
             <h3>{{ tour.name }}</h3>
             <p>{{ tour.main_Info }}</p>
@@ -19,9 +19,9 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                <div class="col-lg-8 col-md-9">
-                <a href="{% url 'booking' tour.id %}" class="btn btn-outline-success text-lg-right">Book now</a>
-                    <div class="destination_info">
+                <div class="col-lg-8 col-md-9 ">
+                <a href="{% url 'booking' tour.id %}" class="btn btn-outline-success text-lg-right float-right ">Book now</a>
+                    <div class="destination_info pt-2" >
                         <h2>Description</h2>
 
                     <p>{{ tour.description }}
@@ -32,15 +32,50 @@
                             <p>{{ ite.description }}</p>
                     {% endfor %}
                     </div>
-
-            <div class=" ">
-
-            </div>
                 </div>
             </div>
-
+{#            #}
         </div>
     </div>
+    <!-- newsletter_area_start  -->
+    <div class="newsletter_area overlay">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-10">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="newsletter_text">
+                                <h4>Subscribe Our Newsletter</h4>
+                                <p>Subscribe newsletter to get offers and about
+                                    new places to discover.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                                <form class="mail_form" action="{% url 'newsletter' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row no-gutters">
+                                    <div class="col-lg-9 col-md-8">
+
+                                        <div class="newsletter_field">
+                                            <input type="email" name="email" placeholder="Your mail" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="newsletter_btn">
+                                            <button class="boxed-btn4 " type="submit" >Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newsletter_area_end  -->
+
+
 
     <script>
         document.getElementById('bg-image').style.background =" url('{{ tour.picture.url }}')";

@@ -8,32 +8,80 @@
 
 <!--main body-->
 {% block main_content %}
-<div class="popular_destination_area">
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_destination">
         <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Destination</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
 
-                <div class="row">
+    <div class="popular_destination_area">
+        <div class="container">
+            <div class="row">
                 {% for dest in destinations %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
-
                         <div class="thumb">
                             <img src="{{ dest.picture.url }}" alt="">
                         </div>
-
-                        <div class="content">
-                            <p class="d-flex align-items-center">{{ dest.name }}
-                                <a href="{% url 'travelDestination' dest.id %}">
-                                    {{ dest.tour_set.all.count }} Places
-                                </a>
-                            </p>
-
-                        </div>
+                    <div class="content">
+                        <p class="d-flex align-items-center">{{ dest.name }}
+                            <a href="{% url 'travelDestination' dest.id %}">
+                                {{ dest.tour_set.all.count }} Places
+                            </a>
+                        </p>
+                    </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-    <!-- popular_destination_area_end  -->
+        <!-- popular_destination_area_end  -->
+
+    <!-- newsletter_area_start  -->
+    <div class="newsletter_area overlay">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-10">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="newsletter_text">
+                                <h4>Subscribe Our Newsletter</h4>
+                                <p>Subscribe newsletter to get offers and about
+                                    new places to discover.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                                <form class="mail_form" action="{% url 'newsletter' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row no-gutters">
+                                    <div class="col-lg-9 col-md-8">
+
+                                        <div class="newsletter_field">
+                                            <input type="email" name="email" placeholder="Your mail" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="newsletter_btn">
+                                            <button class="boxed-btn4 " type="submit" >Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newsletter_area_end  -->
 
 {% endblock %}

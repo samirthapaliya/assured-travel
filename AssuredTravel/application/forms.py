@@ -37,10 +37,16 @@ class BookForm(ModelForm):
     class Meta:
         model = Booking
         fields = '__all__'
-        exclude = ['user', 'tour','status']
+        exclude = ['user', 'tour', 'status']
 
 
 class BookFormUpdate(ModelForm):
     class Meta:
         model = Booking
         fields = ['user', 'fullname', 'status']
+
+
+class SubscribeForm(ModelForm):
+    class Meta:
+        model = Subscribe
+        fields = '__all__'

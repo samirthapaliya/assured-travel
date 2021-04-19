@@ -20,9 +20,14 @@ def admin_dashboard(request):
     reviews_count = reviews.count()
     users = User.objects.all()
     user_count = users.filter(is_staff=0).count()
-    admin_count = users.filter(is_staff=1).count()
+    admin = User.objects.all()
+    admin_count = admin.filter(is_staff=1).count()
     booking = Booking.objects.all()
     booking_count = booking.count()
+    subscribe = Subscribe.objects.all()
+    subscribe_count = subscribe.count()
+    newsletter = Newsletter.objects.all()
+    newsletter_count = newsletter.count()
     context = {
         'tour': tour_count,
         'user': user_count,
@@ -31,6 +36,8 @@ def admin_dashboard(request):
         'reviews': reviews_count,
         'admin': admin_count,
         'booking': booking_count,
+        'subscribe': subscribe_count,
+        'newsletter': newsletter_count,
         'active_dashboard': 'active',
     }
     return render(request, 'admins/adminDashboard.html', context)
@@ -45,6 +52,17 @@ def get_user(request):
         'users': users,
     }
     return render(request, 'admins/showUsers.html', context)
+
+
+@login_required
+@admin_only
+def get_admin(request):
+    admin_all = User.objects.all()
+    admin = admin_all.filter(is_staff=1)
+    context = {
+        'admin': admin,
+    }
+    return render(request, 'admins/showAdmin.html', context)
 
 
 @login_required
@@ -163,6 +181,7 @@ def update_itinerary(request, ite_id):
         'activate_Itinerary': 'active'
     }
     return render(request, 'admins/updateItenerary.html', context)
+
 
 #
 # def update_itinerar(request, iti_id):
@@ -326,4 +345,31 @@ def deleteBooking(request, bk_id):
     return redirect('getBookingAd')
 
 
+# for subscription
+def getSubscribe(request):
+    subscribe = Subscribe.objects.all()
+    context = {
+        'subscribe': subscribe,
+    }
+    return render(request, 'admins/showSubscribe.html', context)
 
+
+def deleteSubscription(request, sub_id):
+    subscription = Subscribe.objects.get(id=sub_id)
+    subscription.delete()
+    return redirect('getSubscription')
+
+
+# for newsletter
+def getNewsletter(request):
+    newsletter = Newsletter.objects.all()
+    context = {
+        'newsletter': newsletter,
+    }
+    return render(request, 'admins/showNewsletter.html', context)
+
+
+def deleteNewsletter(request, news_id):
+    newsletter = Newsletter.objects.get(id=news_id)
+    newsletter.delete()
+    return redirect('getNewsletter')

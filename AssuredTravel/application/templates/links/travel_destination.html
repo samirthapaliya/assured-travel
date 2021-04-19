@@ -24,12 +24,7 @@
     <div class="popular_places_area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>Popular Places</h3>
-                        <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 {% for i in tour %}
@@ -44,11 +39,11 @@
                             <p>{{ i.country_Name }}</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span id="review-star" class="d-flex justify-content-center align-items-center">
-                                     <a href="#">( <span id="review-count">{{ i.reviews.count }}</span> Review)</a>
+                                     <a href="#"> <span id="review-count">{{ i.reviews.count }}</span> Review</a>
                                 </span>
                                 <div class="days">
                                     <i class="fa fa-clock-o"></i>
-                                    <a href="#">{{ i.itinerary.count }} Days</a>
+                                    <a href="#">{{ i.itinerary_set.all.count }} Days</a>
                                 </div>
                             </div>
                         </div>

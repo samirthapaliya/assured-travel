@@ -81,6 +81,7 @@ def viewMyBooking(request):
     print(bookings)
 
     context = {
-        'bookings': bookings
+        'bookings': bookings,
+        'active_booking': 'active',
     }
     return render(request, 'account/orderDetail.html', context)

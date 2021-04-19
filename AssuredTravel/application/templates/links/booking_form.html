@@ -1,69 +1,34 @@
 {% extends 'layout.html' %}
+{% load bootstrap %}
 
 {% block title %}
 <title>Booking</title>
 {% endblock %}
 
-
 {% block main_content %}
-<div class="bordered_1px"></div>
-                    <div class="contact_join">
-                        <h3>Contact for join</h3>
-                <form method="POST">
+    <div class="bg-img-book">
+        <div class="container ">
+            <div class="row">
+        <div class="col-lg-8 offset-md-3">
+                 <div class="contact_join">
+                        <p style="margin-top: 30px"></p>
+                        <h3 class="text-white">Book Now</h3>
+                <form class="form" method= 'POST' enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <input class="btn btn-danger" value="Submit" type="submit">
+                    {{ form |  bootstrap_horizontal}}
+                    <input class="btn boxed-btn4" value="Submit" type="submit">
                 </form>
-
-                    {% for message in messages %}
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                     {% for message in messages %}
+                         {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
                             <p class="text-success">{{message}}</p>
-                        {% endif %}
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                         {% endif %}
+                         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
                             <p class="text-danger">{{message}}</p>
-                        {% endif %}
+                         {% endif %}
                     {% endfor %}
-
-
-                    </div>
-{#    <div id="booking" class="section-booking">#}
-{#		<div class="section-booking-center">#}
-{#			<div class="container">#}
-{#				<div class="row">#}
-{#					<div class="col-md-7 col-md-push-5">#}
-{#						<div class="booking-cta">#}
-{#							<h1>Make your reservation</h1>#}
-{#							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque#}
-{#								ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.#}
-{#								Perspiciatis.#}
-{#							</p>#}
-{#						</div>#}
-{#					</div>#}
-{#					<div class="col-md-4 col-md-pull-7">#}
-{#						<div class="booking-form">#}
-{#                            <div class="row">#}
-{##}
-{#                            </div>#}
-{#							<form>#}
-{#								<div class="form-group">#}
-{#							        {% csrf_token %}#}
-{#                                    {{ form.as_p }}#}
-{#                                    <input class="btn btn-danger" value="Submit" type="submit">#}
-{#								</div>#}
-{#                            </form>#}
-{#                            {% for message in messages %}#}
-{#                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}#}
-{#                                    <p class="text-success">{{message}}</p>#}
-{#                                {% endif %}#}
-{#                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}#}
-{#                                    <p class="text-danger">{{message}}</p>#}
-{#                                {% endif %}#}
-{#                            {% endfor %}#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
+                 </div>
+            </div>
+        </div>
+    </div>
+    </div>
 {% endblock %}

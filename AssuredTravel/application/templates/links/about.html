@@ -49,12 +49,12 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="thumb padd_1">
-                                            <img src="../../static/images/about/1.png" alt="">
+                                            <img src="../../../static/images/banner/backpack.jpg" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="thumb">
-                                            <img src="../../static/images/about/2.png" alt="">
+                                            <img src="../../../static/images/banner/about-info.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -87,5 +87,43 @@
             </div>
         </div>
     </div>
+
+    <!-- newsletter_area_start  -->
+    <div class="newsletter_area overlay">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-10">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="newsletter_text">
+                                <h4>Subscribe Our Newsletter</h4>
+                                <p>Subscribe newsletter to get offers and about
+                                    new places to discover.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                                <form class="mail_form" action="{% url 'newsletter' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row no-gutters">
+                                    <div class="col-lg-9 col-md-8">
+
+                                        <div class="newsletter_field">
+                                            <input type="email" name="email" placeholder="Your mail" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="newsletter_btn">
+                                            <button class="boxed-btn4 " type="submit" >Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newsletter_area_end  -->
 
 {% endblock %}

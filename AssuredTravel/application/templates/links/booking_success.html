@@ -7,7 +7,17 @@
 
 
 {% block main_content %}
-<h1> Your booking for {{ tour.name }} is successful</h1>
-    <button class="btn-success"><a href="{% url 'homeAP' %}">Back To home</a></button>
+    <div class="container justify-content-sm-center" style="height: 500px">
+        <p style="height: 200px"></p>
+
+        <h1 class="text-center"> Your booking for {{ tour.location }} is successful</h1>
+        <div class="col-md-12 text-center">
+            <button class="btn boxed-btn my-2 my-sm-0"><a href="{% url 'orderD' %}">View Your Bookings</a></button>
+            <button class="btn boxed-btn4 my-2 my-sm-0"><a href="{% url 'homeAP' %}">Back To home</a></button>
+        </div>
+    </div>
+
 
 {% endblock %}
+
+

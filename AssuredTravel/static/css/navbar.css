@@ -13,8 +13,8 @@
     background: black;
     padding: 1rem 5rem;
 }
-
 .navbar .navbar-brand{
+
     font-size: 1.4rem;
     font-weight: 700;
 }
@@ -81,8 +81,4 @@
 .active{
     color: #EC5849;
     border-style: solid;
-
-
-
-
 }

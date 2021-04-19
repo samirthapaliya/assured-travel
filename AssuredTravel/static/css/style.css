@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 
+
+
 /*Where to go*/
 .where_togo_area {
   background: #040E27;
@@ -739,11 +741,23 @@
   z-index: 0;
 }
 .bradcam_bg_about{
-  background-image: url("../images/uploads/lake-zurich-3840x2160-forest-sky-mountains-4k-17798.jpg");
+  background-image: url("../images/banner/about.jpg");
 }
 
 .bradcam_bg_contact{
-  background-image: url("../images/uploads/mohamed-thasneem-3bAblStd-IY-unsplash.jpg");
+  background-image: url("../images/banner/banner2.png");
+}
+
+.bradcam_bg_tour{
+  background-image: url("../images/banner/tour.jpg");
+}
+
+.bradcam_bg_destination{
+  background-image: url("../images/banner/destination.jpg");
+}
+
+.bradcam_bg_contact{
+  background-image: url("../images/banner/contact.jpg");
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1337,4 +1351,8 @@
 .booking-cta p {
 	font-size: 16px;
 	color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-img-book{
+  background-image: url("../../static/images/banner/booking.jpg");
 }

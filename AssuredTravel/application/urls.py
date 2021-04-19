@@ -13,5 +13,7 @@ urlpatterns = [
     path('travelDestination/<int:id>', views.destinationDetail, name="travelDestination"),
     path('search/', views.tour_search, name="search"),
     path('booking/<int:id>', views.book_user, name='booking'),
-    path('bookingSuccess', views.book_success, name='bookingSuccess')
+    path('bookingSuccess', views.book_success, name='bookingSuccess'),
+    path('subscription', views.postSubscription, name='subscription'),
+    path('newsletter', views.postNewsletter, name='newsletter'),
 ]

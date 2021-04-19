@@ -61,3 +61,14 @@ class Booking(models.Model):
 
     def __str__(self):
         return str(self.user.username + "-->" + self.tour.name)
+
+
+class Subscribe(models.Model):
+    fullname = models.CharField(max_length=200, default=None, null=True, blank=True)
+    email = models.CharField(max_length=200, default=None, null=True, blank=True)
+    subject = models.CharField(max_length=2000, default=None, null=True, blank=True)
+    message = models.TextField(max_length=5000)
+
+
+class Newsletter(models.Model):
+    email = models.CharField(max_length=200, default=None, null=True, blank=True)

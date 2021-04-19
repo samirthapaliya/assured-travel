@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.admin_dashboard,name="adminDashboardAd"),
     path('show-user', views.get_user, name="showUser"),
+    path('show-admin', views.get_admin, name="showAdmin"),
     path('registerAdmin', views.register_user_admin, name="registerAd"),
     path('update-user-to-admin/<int:user_id>', views.update_user_to_admin),
 
@@ -32,4 +33,10 @@ urlpatterns = [
     path('postBooking', views.postBooking, name= "postBookingAd"),
     path('updateBooking/<int:bk_id>', views.updateBooking),
     path('deleteBooking/<int:bk_id>', views.deleteBooking),
+
+    path('getSubscription/', views.getSubscribe, name="getSubscription"),
+    path('deleteSubscription/<int:sub_id>', views.deleteSubscription),
+
+    path('getNewsletter/', views.getNewsletter, name="getNewsletter"),
+    path('deleteNewsletter/<int:news_id>', views.deleteNewsletter),
 ]

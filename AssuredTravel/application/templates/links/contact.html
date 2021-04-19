@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-
+{% load bootstrap %}
 {% block title %}
 <title>Contact Us</title>
 {% endblock %}
@@ -13,7 +13,7 @@
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
                         <h3>contact</h3>
-                        <p>Pixel perfect design with awesome contents</p>
+                        <p>let's meet for a coffee</p>
                     </div>
                 </div>
             </div>
@@ -32,11 +32,15 @@
                 </div>
 
         <div class="row">
-                    <div class="col-12">
-                        <h2 class="contact-title">Get in Touch</h2>
-                    </div>
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="contact-title">Get in Touch</h2>
+                        </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="{% url 'subscription' %}" method="post" id="contactForm" novalidate="novalidate">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -64,7 +68,10 @@
                             </div>
                         </form>
                     </div>
+
+{#                        #}
                     <div class="col-lg-3 offset-lg-1">
+
                         <h3>Contact</h3>
                         <div class="media contact-info">
 
@@ -90,8 +97,10 @@
                         </div>
                     </div>
                 </div>
+                </div>\
+            </div>
+            </div>
             </div>
         </section>
     <!-- ================ contact section end ================= -->
-
 {% endblock %}

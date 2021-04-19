@@ -2,23 +2,24 @@
 {% load static %}
 {% load bootstrap %}
 {% block title %}
-<title>Show Tour</title>
+<title>Show Itinerary</title>
 {% endblock%}
 
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset">
-            <h1 class="text-center"> Tours </h1>
+        <div class="col-md-12 offset">
+            <h1 class="text-center"> Itinerary </h1>
             <div class="card py-2 px-2 table-responsive">
-                <a class="btn btn-success btn-sm ml-auto mb-2"
+                <a class="btn btn-success btn-bg ml-auto mb-2" style="width: 100%"
                    href="{% url 'postItenerary' %}">Add New Itinerary</a>
 
                 <table class="table table-striped table-dark">
                     <tr class="bg">
                         <th>#</th>
-                        <th>name</th>
-                        <th>description</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </tr>
                     {% for i in itinerary %}
                     <tr>
