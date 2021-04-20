@@ -22,7 +22,7 @@
             {% endfor %}
             <h1 class="text-center">Register</h1>
             <div class="card py-3 px-2">
-                <form class="form" style="background-color: #2a2a2a; color: white" action="" method="POST">
+                <form class="form" style="background-color: #2a2a2a; color: white;" action="" method="POST">
                     {% csrf_token %}
 
                     {{ form | bootstrap_horizontal }}

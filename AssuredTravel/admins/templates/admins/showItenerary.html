@@ -17,6 +17,7 @@
                 <table class="table table-striped table-dark">
                     <tr class="bg">
                         <th>#</th>
+                        <th>Tour</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Action</th>
@@ -24,8 +25,10 @@
                     {% for i in itinerary %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
+                        <td>{{ i.tour }}</td>
                         <td>{{ i.name }}</td>
                         <td>{{ i.description }}</td>
+
 
                         <td><a href="/admin-dashboard/updateItenerary/{{ i.id }}"
                                class="btn btn-primary btn-sm">Edit</a> &nbsp;

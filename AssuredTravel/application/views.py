@@ -6,7 +6,7 @@ from .forms import *
 
 
 def Home(request):
-    tours = Tour.objects.all()
+    tours = Tour.objects.all()[:6]
     # filter = TourFilter(request.GET, queryset=tours)
     destinations = Destination.objects.all()[:6]
     context = {

@@ -1,7 +1,4 @@
 from django import forms
-from django.contrib.auth import password_validation
-from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
-
 from application.models import *
 from .models import Profile
 from django.forms import ModelForm

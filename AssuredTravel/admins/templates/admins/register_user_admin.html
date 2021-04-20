@@ -27,7 +27,7 @@
 
     </style>
 
-    <div class="container">
+    <div class="container" style="margin-top: 10px">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             {% for message in messages %}
@@ -41,11 +41,12 @@
             {% endfor %}
             <h1 class="text-center">Add New User</h1>
             <div class="card py-2 px-2">
-                <form class="form registration_form" action="" method="POST">
+                <form class="form registration_form" style="background-color: #2a2a2a; color: white" action="" method="POST">
                     {% csrf_token %}
 
                     {{ form | bootstrap_horizontal }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit"  class="btn boxed-btn4" style="margin-left: 260px; margin-top: 20px;
+                                margin-bottom: 20px; ">Register</button>
                 </form>
             </div>
         </div>

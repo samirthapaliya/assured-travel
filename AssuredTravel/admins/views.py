@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
 from account.auth import admin_only
 from application.forms import *
 
@@ -181,21 +180,6 @@ def update_itinerary(request, ite_id):
         'activate_Itinerary': 'active'
     }
     return render(request, 'admins/updateItenerary.html', context)
-
-
-#
-# def update_itinerar(request, iti_id):
-#     instance = Itenerary.objects.get(id=iti_id)
-#     if request.method == "POST":
-#         form = ItineraryForm(request.POST, request.FILES, instance=instance)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/admin-dashboard/getTour')
-#     context = {
-#         'form': TourForm(instance=instance),
-#         'activate_Tour': 'active'
-#     }
-#     return render(request, 'admins/updateTour.html', context)
 
 
 def delete_itinerary(request, ite_id):
