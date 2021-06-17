@@ -1,5 +1,5 @@
-# final-assignment-samirthapaliya-1
-final-assignment-samirthapaliya-1 created by GitHub Classroom
+Assured Travel
+
 
 Admin user:
 username: admin
